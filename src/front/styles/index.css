@@ -1,3 +1,22 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+/* 
+    General Styles used on every website (Don't Repeat Yourself)
+*/
+.fauxColor{
+    background-color: rgb(236, 73, 48);
+}
+.test{
+    font-size: 16px;
+}
+.fauxFooter{
+    background-color: rgb(217, 217, 217);
+}
+.enlace{
+    text-decoration: none;
+}
+.enlace:hover{
+    text-decoration: underline;
+    color: black !important;
+}
