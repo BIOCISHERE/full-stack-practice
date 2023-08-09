@@ -4,23 +4,26 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
-.fauxColor{
-    background-color: rgb(236, 73, 48);
+.fauxColor {
+  background-color: rgb(236, 73, 48);
 }
-.test{
-    font-size: 16px;
+.test {
+  font-size: 16px;
 }
-.fauxFooter{
-    background-color: rgb(217, 217, 217);
+.fauxFooter {
+  background-color: rgb(217, 217, 217);
 }
-.enlace{
-    text-decoration: none;
+.enlace {
+  text-decoration: none;
 }
-.enlace:hover{
-    text-decoration: underline;
-    color: black !important;
+.enlace:hover {
+  text-decoration: underline;
+  color: black !important;
 }
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
-    filter: invert(100%);
+  filter: invert(100%);
+}
+.carousel-indicators button {
+  filter: invert(100%);
 }
