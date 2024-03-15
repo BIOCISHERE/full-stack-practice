@@ -1,3 +1,10 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.fauxColor {
+  background-color: rgb(236, 73, 48);
+}
+.fauxText {
+  color: white;
+  text-decoration: none;
+}
