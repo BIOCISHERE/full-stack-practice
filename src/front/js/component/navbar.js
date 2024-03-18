@@ -12,7 +12,7 @@ import {
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg fauxColor">
-      <div className="container">
+      <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img
             className="rounded-circle"
@@ -20,63 +20,90 @@ export const Navbar = () => {
             alt="logo"
             style={{ width: 50, height: 50 }}
           ></img>
-          <span className="fs-3 fauxText m-1 ">Faux Atelier</span>
+          <span className="fauxText fs-3 ms-1">Faux Atelier</span>
         </Link>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <Link className="nav-link fauxText" to="/">
-              Mujer
-            </Link>
-            <Link className="nav-link fauxText" to="/">
-              Hombre
-            </Link>
-            <Link className="nav-link fauxText" to="/">
-              Calzado
-            </Link>
-            <Link className="nav-link fauxText" to="/">
-              SALE
-            </Link>
-            <Link className="nav-link" to="/">
-              <span>
-                <FaTruck
-                  className="fauxText"
-                  style={{ width: 20, height: 20 }}
-                />
-              </span>
-            </Link>
-            <Link className="nav-link" to="/">
-              <span>
-                <FaSearch
-                  className="fauxText"
-                  style={{ width: 20, height: 20 }}
-                />
-              </span>
-            </Link>
-            <Link className="nav-link" to="/">
-              <span>
-                <FaHeart
-                  className="fauxText"
-                  style={{ width: 20, height: 20 }}
-                />
-              </span>
-            </Link>
-            <Link className="nav-link" to="/">
-              <span>
-                <FaShoppingCart
-                  className="fauxText"
-                  style={{ width: 20, height: 20 }}
-                />
-              </span>
-            </Link>
-            <Link className="nav-link" to="/">
-              <span>
-                <FaUser
-                  className="fauxText"
-                  style={{ width: 20, height: 20 }}
-                />
-              </span>
-            </Link>
-          </div>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link fauxText" aria-current="page" to="/">
+                Women
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fauxText" to="/">
+                Men
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fauxText" to="/">
+                Shoes
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle fauxText"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <FaUser />
+                User
+              </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fauxText" to="/">
+                <FaSearch />
+                Search
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fauxText" to="/">
+                <FaTruck />
+                My orders
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fauxText" to="/">
+                <FaHeart />
+                Favorites
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fauxText" to="/">
+                <FaShoppingCart />
+                Shopping cart
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
