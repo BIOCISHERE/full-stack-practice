@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import fauxAtelierUrl from "../../img/faux_atelier_logo.png";
+import {
+  FaTruck,
+  FaSearch,
+  FaHeart,
+  FaShoppingCart,
+  FaUser,
+} from "react-icons/fa";
 
 export const Navbar = () => {
   return (
@@ -28,6 +35,46 @@ export const Navbar = () => {
             </Link>
             <Link className="nav-link fauxText" to="/">
               SALE
+            </Link>
+            <Link className="nav-link" to="/">
+              <span>
+                <FaTruck
+                  className="fauxText"
+                  style={{ width: 20, height: 20 }}
+                />
+              </span>
+            </Link>
+            <Link className="nav-link" to="/">
+              <span>
+                <FaSearch
+                  className="fauxText"
+                  style={{ width: 20, height: 20 }}
+                />
+              </span>
+            </Link>
+            <Link className="nav-link" to="/">
+              <span>
+                <FaHeart
+                  className="fauxText"
+                  style={{ width: 20, height: 20 }}
+                />
+              </span>
+            </Link>
+            <Link className="nav-link" to="/">
+              <span>
+                <FaShoppingCart
+                  className="fauxText"
+                  style={{ width: 20, height: 20 }}
+                />
+              </span>
+            </Link>
+            <Link className="nav-link" to="/">
+              <span>
+                <FaUser
+                  className="fauxText"
+                  style={{ width: 20, height: 20 }}
+                />
+              </span>
             </Link>
           </div>
         </div>
