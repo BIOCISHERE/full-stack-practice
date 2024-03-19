@@ -1,13 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import fauxAtelierUrl from "../../img/faux_atelier_logo.png";
-import {
-  FaTruck,
-  FaSearch,
-  FaHeart,
-  FaShoppingCart,
-  FaUser,
-} from "react-icons/fa";
+import { FaTruck, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 
 export const Navbar = () => {
   return (
@@ -22,6 +16,17 @@ export const Navbar = () => {
           ></img>
           <span className="fauxText fs-3 ms-1">Faux Atelier</span>
         </Link>
+        <form className="d-flex me-1" role="search">
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button className="btn btn-dark" type="submit">
+            Search
+          </button>
+        </form>
         <button
           className="navbar-toggler"
           type="button"
@@ -45,12 +50,12 @@ export const Navbar = () => {
                 Men
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item me-5">
               <Link className="nav-link fauxText" to="/">
                 Shoes
               </Link>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item dropdown me-1">
               <a
                 className="nav-link dropdown-toggle fauxText"
                 href="#"
@@ -58,7 +63,9 @@ export const Navbar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <FaUser />
+                <span className="me-1">
+                  <FaUser />
+                </span>
                 User
               </a>
               <ul className="dropdown-menu">
@@ -79,27 +86,27 @@ export const Navbar = () => {
                 </li>
               </ul>
             </li>
-            <li className="nav-item">
+            <li className="nav-item me-1">
               <Link className="nav-link fauxText" to="/">
-                <FaSearch />
-                Search
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link fauxText" to="/">
-                <FaTruck />
+                <span className="me-1">
+                  <FaTruck />
+                </span>
                 My orders
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item me-1">
               <Link className="nav-link fauxText" to="/">
-                <FaHeart />
+                <span className="me-1">
+                  <FaHeart />
+                </span>
                 Favorites
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link fauxText" to="/">
-                <FaShoppingCart />
+                <span className="me-1">
+                  <FaShoppingCart />
+                </span>
                 Shopping cart
               </Link>
             </li>
