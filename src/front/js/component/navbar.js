@@ -41,7 +41,11 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link fauxText" aria-current="page" to="/">
+              <Link
+                className="nav-link fauxText"
+                aria-current="page"
+                to="/womens-products"
+              >
                 Women
               </Link>
             </li>
