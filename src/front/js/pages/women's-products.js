@@ -2,8 +2,80 @@ import React, { useContext } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import {
+  FaRegStar,
+  FaRegStarHalfStroke,
+  FaStar,
+  FaRegHeart,
+} from "react-icons/fa6";
 
 export const WomensProducts = () => {
+  const turnRating = (info) => {
+    if (info == 0) {
+      return (
+        <>
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+        </>
+      );
+    } else if (info == 1) {
+      return (
+        <>
+          <FaStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+        </>
+      );
+    } else if (info == 2) {
+      return (
+        <>
+          <FaStar />
+          <FaStar />
+          <FaRegStar />
+          <FaRegStar />
+          <FaRegStar />
+        </>
+      );
+    } else if (info == 3) {
+      return (
+        <>
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <FaRegStar />
+          <FaRegStar />
+        </>
+      );
+    } else if (info == 4) {
+      return (
+        <>
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <FaRegStar />
+        </>
+      );
+    } else if (info == 5) {
+      return (
+        <>
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <FaStar />
+          <FaStar />
+        </>
+      );
+    } else {
+      return info;
+    }
+  };
+
   const response = [
     {
       id: "1",
@@ -384,12 +456,18 @@ export const WomensProducts = () => {
                       <h5 className="card-title">{item.name}</h5>
                       <div className="d-flex">
                         <span className="card-text me-auto">${item.cost}</span>
-                        <span className="card-text">heart</span>
+                        <span className="card-text fauxLeters fs-5">
+                          <FaRegHeart />
+                        </span>
                       </div>
-                      <span className="card-text">{item.rating}</span>{" "}
-                      <span className="card-text">({item.ratingVotes})</span>{" "}
+                      <span className="card-text fauxLeters">
+                        {turnRating(item.rating)}
+                      </span>
+                      <span className="card-text ms-1">
+                        ({item.ratingVotes})
+                      </span>
                       <br />
-                      <Link to="/" className="btn btn-primary">
+                      <Link to="/" className="btn btn-primary mt-1">
                         Go somewhere
                       </Link>
                     </div>
