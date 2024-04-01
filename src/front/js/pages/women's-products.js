@@ -2,83 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import {
-  FaRegStar,
-  FaRegStarHalfStroke,
-  FaStar,
-  FaRegHeart,
-} from "react-icons/fa6";
+import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
 export const WomensProducts = () => {
   const { store, actions } = useContext(Context);
 
   const [isResponse, setIsResponse] = useState([]);
-
-  const turnRating = (info) => {
-    if (info == 0) {
-      return (
-        <>
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-        </>
-      );
-    } else if (info == 1) {
-      return (
-        <>
-          <FaStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-        </>
-      );
-    } else if (info == 2) {
-      return (
-        <>
-          <FaStar />
-          <FaStar />
-          <FaRegStar />
-          <FaRegStar />
-          <FaRegStar />
-        </>
-      );
-    } else if (info == 3) {
-      return (
-        <>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaRegStar />
-          <FaRegStar />
-        </>
-      );
-    } else if (info == 4) {
-      return (
-        <>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaRegStar />
-        </>
-      );
-    } else if (info == 5) {
-      return (
-        <>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-        </>
-      );
-    } else {
-      return info;
-    }
-  };
 
   useEffect(() => {
     setIsResponse(store.response);
@@ -251,7 +180,7 @@ export const WomensProducts = () => {
                         </span>
                       </div>
                       <span className="card-text fauxLeters">
-                        {turnRating(item.rating)}
+                        {actions.turnRating(item.rating, FaRegStar, FaStar)}
                       </span>
                       <span className="card-text ms-1">
                         ({item.ratingVotes})

@@ -1,3 +1,6 @@
+import React from "react";
+import { FaRegStar, FaStar } from "react-icons/fa6";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -264,6 +267,71 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //reset the global store
         setStore({ demo: demo });
+      },
+      turnRating: (info) => {
+        if (info == 0) {
+          return (
+            <>
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+            </>
+          );
+        } else if (info == 1) {
+          return (
+            <>
+              <FaStar />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+            </>
+          );
+        } else if (info == 2) {
+          return (
+            <>
+              <FaStar />
+              <FaStar />
+              <FaRegStar />
+              <FaRegStar />
+              <FaRegStar />
+            </>
+          );
+        } else if (info == 3) {
+          return (
+            <>
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaRegStar />
+              <FaRegStar />
+            </>
+          );
+        } else if (info == 4) {
+          return (
+            <>
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaRegStar />
+            </>
+          );
+        } else if (info == 5) {
+          return (
+            <>
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+            </>
+          );
+        } else {
+          return info;
+        }
       },
     },
   };
