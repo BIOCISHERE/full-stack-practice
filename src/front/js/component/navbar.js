@@ -50,7 +50,7 @@ export const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link fauxText" to="/">
+              <Link className="nav-link fauxText" to="/mens-products">
                 Men
               </Link>
             </li>
