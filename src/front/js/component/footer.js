@@ -27,22 +27,22 @@ export const Footer = () => (
           <span className="fw-bold">Faux Atelier</span>
           <ul>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Stores
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Blog
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Contact us
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Privacy policies
               </Link>
             </li>
@@ -52,27 +52,27 @@ export const Footer = () => (
           <span className="fw-bold">Information</span>
           <ul>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Frequent questions
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Delivery
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Pick up in store
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Payment policies
               </Link>
             </li>
             <li>
-              <Link className="text-decoration-none text-reset" to="/">
+              <Link className="text-reset" to="/">
                 Terms and conditions
               </Link>
             </li>
