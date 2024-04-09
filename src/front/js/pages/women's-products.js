@@ -80,7 +80,7 @@ export const WomensProducts = () => {
                 </span>
               </div>
               <span className="card-text fauxLeters">
-                {actions.turnRating(item.rating, FaRegStar, FaStar)}
+                {actions.turnRating(item.rating)}
               </span>
               <span className="card-text ms-1">({item.ratingVotes})</span>
               <br />
@@ -109,7 +109,7 @@ export const WomensProducts = () => {
                 </span>
               </div>
               <span className="card-text fauxLeters">
-                {actions.turnRating(item.rating, FaRegStar, FaStar)}
+                {actions.turnRating(item.rating)}
               </span>
               <span className="card-text ms-1">({item.ratingVotes})</span>
               <br />

@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import tShirtUrl from "../../img/t-shirt.png";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
 export const MensProducts = () => {
+  const { store, actions } = useContext(Context);
   return (
     <div className="container-fluid my-1">
       <div className="row">
@@ -125,7 +130,35 @@ export const MensProducts = () => {
           </div>
         </div>
         <div className="col-10 border border-primary">
-          men's products part 2
+          <div className="container-fluid">
+            <div className="row row-cols-xm-1 row-cols-sm-2 row-cols-md-4 g-4">
+              <div className="col">
+                <div className="card my-1">
+                  <img
+                    className="card-image-top img-fluid"
+                    src={tShirtUrl}
+                    alt="..."
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">T-shirt</h5>
+                    <div className="d-flex">
+                      <span className="card-text me-auto">$4000</span>
+                      <span className="card-text fauxLeters fs-5">
+                        <FaRegHeart />
+                      </span>
+                    </div>
+                    <span className="card-text fauxLeters">
+                      {actions.turnRating(4)}
+                    </span>
+                    <span className="card-text ms-1">(200)</span> <br />
+                    <Link to="/" className="btn btn-primary mt-1">
+                      Go somewhere
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
