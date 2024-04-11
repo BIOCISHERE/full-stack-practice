@@ -724,7 +724,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 400,
           category: 17,
           amount: 10,
-          productFor: "Women",
+          productFor: "Footwear",
         },
         {
           id: 50,
@@ -734,27 +734,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 300,
           category: 17,
           amount: 10,
-          productFor: "Women",
-        },
-        {
-          id: 51,
-          name: "Urban Sneaker",
-          cost: 20000,
-          rating: 4,
-          ratingVotes: 350,
-          category: 17,
-          amount: 10,
-          productFor: "Men",
-        },
-        {
-          id: 52,
-          name: "Urban Sneaker",
-          cost: 20000,
-          rating: 5,
-          ratingVotes: 410,
-          category: 17,
-          amount: 10,
-          productFor: "Men",
+          productFor: "Footwear",
         },
         {
           id: 53,
@@ -764,7 +744,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 480,
           category: 18,
           amount: 10,
-          productFor: "Women",
+          productFor: "Footwear",
         },
         {
           id: 54,
@@ -774,27 +754,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 320,
           category: 18,
           amount: 10,
-          productFor: "Women",
-        },
-        {
-          id: 55,
-          name: "Sport Sneaker",
-          cost: 25000,
-          rating: 3,
-          ratingVotes: 190,
-          category: 18,
-          amount: 10,
-          productFor: "Men",
-        },
-        {
-          id: 56,
-          name: "Sport Sneaker",
-          cost: 25000,
-          rating: 5,
-          ratingVotes: 400,
-          category: 18,
-          amount: 10,
-          productFor: "Men",
+          productFor: "Footwear",
         },
         {
           id: 57,
@@ -804,7 +764,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 200,
           category: 19,
           amount: 10,
-          productFor: "Women",
+          productFor: "Footwear",
         },
         {
           id: 58,
@@ -814,27 +774,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 90,
           category: 19,
           amount: 10,
-          productFor: "Women",
-        },
-        {
-          id: 59,
-          name: "Shoe",
-          cost: 18000,
-          rating: 5,
-          ratingVotes: 110,
-          category: 19,
-          amount: 10,
-          productFor: "Men",
-        },
-        {
-          id: 60,
-          name: "Shoe",
-          cost: 18000,
-          rating: 4,
-          ratingVotes: 140,
-          category: 19,
-          amount: 10,
-          productFor: "Men",
+          productFor: "Footwear",
         },
         {
           id: 61,
@@ -844,7 +784,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 70,
           category: 20,
           amount: 10,
-          productFor: "Women",
+          productFor: "Footwear",
         },
         {
           id: 62,
@@ -854,29 +794,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           ratingVotes: 50,
           category: 20,
           amount: 10,
-          productFor: "Women",
-        },
-        {
-          id: 63,
-          name: "Sandals",
-          cost: 16000,
-          rating: 3,
-          ratingVotes: 79,
-          category: 20,
-          amount: 10,
-          productFor: "Men",
-        },
-        {
-          id: 64,
-          name: "Sandals",
-          cost: 16000,
-          rating: 2,
-          ratingVotes: 30,
-          category: 20,
-          amount: 10,
-          productFor: "Men",
+          productFor: "Footwear",
         },
       ],
+      womenProducts: [],
+      menProducts: [],
+      footwearProducts: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -909,6 +832,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         //reset the global store
         setStore({ demo: demo });
+      },
+      filterProducts: () => {
+        const store = getStore();
+        for (let i = 0; i < store.fullResponse.length; i++) {
+          if (store.fullResponse[i].productFor == "Women") {
+            let womenArray = store.womenProducts;
+            let womenUpdate = womenArray.concat(store.fullResponse[i]);
+
+            setStore({ womenProducts: womenUpdate });
+          } else if (store.fullResponse[i].productFor == "Men") {
+            let menArray = store.menProducts;
+            let menUpdate = menArray.concat(store.fullResponse[i]);
+
+            setStore({ menProducts: menUpdate });
+          } else if (store.fullResponse[i].productFor == "Footwear") {
+            let footwearArray = store.footwearProducts;
+            let footwearUpdate = footwearArray.concat(store.fullResponse[i]);
+
+            setStore({ footwearProducts: footwearUpdate });
+          } else {
+            console.log("filterProducts failed to set the store", i);
+          }
+        }
       },
       turnRating: (info) => {
         if (info == 0) {
