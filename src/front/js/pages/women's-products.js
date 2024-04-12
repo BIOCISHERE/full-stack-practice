@@ -19,32 +19,35 @@ export const WomensProducts = () => {
   const [isPanties, setIsPanties] = useState(false);
   const [isBras, setIsBras] = useState(false);
   const [isPantys, setIsPantys] = useState(false);
+  const [isSocks, setIsSocks] = useState(false);
 
   const turnClass = (info) => {
     if (info.category == 1) {
       return isTShirt ? "col" : "d-none";
     } else if (info.category == 2) {
       return isSweaters ? "col" : "d-none";
-    } else if (info.category == 3) {
-      return isPants ? "col" : "d-none";
     } else if (info.category == 4) {
+      return isPants ? "col" : "d-none";
+    } else if (info.category == 6) {
       return isJeans ? "col" : "d-none";
     } else if (info.category == 5) {
       return isDresses ? "col" : "d-none";
-    } else if (info.category == 6) {
-      return isPurses ? "col" : "d-none";
     } else if (info.category == 7) {
-      return isWallets ? "col" : "d-none";
+      return isPurses ? "col" : "d-none";
     } else if (info.category == 8) {
-      return isBelts ? "col" : "d-none";
+      return isWallets ? "col" : "d-none";
     } else if (info.category == 9) {
-      return isScarfs ? "col" : "d-none";
+      return isBelts ? "col" : "d-none";
     } else if (info.category == 10) {
-      return isPanties ? "col" : "d-none";
+      return isScarfs ? "col" : "d-none";
     } else if (info.category == 11) {
-      return isBras ? "col" : "d-none";
+      return isPanties ? "col" : "d-none";
     } else if (info.category == 12) {
+      return isBras ? "col" : "d-none";
+    } else if (info.category == 13) {
       return isPantys ? "col" : "d-none";
+    } else if (info.category == 14) {
+      return isSocks ? "col" : "d-none";
     }
   };
 
@@ -61,9 +64,10 @@ export const WomensProducts = () => {
       !isScarfs &&
       !isPanties &&
       !isBras &&
-      !isPantys
+      !isPantys &&
+      !isSocks
     ) {
-      return store.response.map((item, index) => (
+      return store.womenProducts.map((item, index) => (
         <div className="col" key={index}>
           <div className="card my-1">
             <img
@@ -92,7 +96,7 @@ export const WomensProducts = () => {
         </div>
       ));
     } else {
-      return store.response.map((item, index) => (
+      return store.womenProducts.map((item, index) => (
         <div className={turnClass(item)} key={index}>
           <div className="card my-1">
             <img
@@ -279,7 +283,19 @@ export const WomensProducts = () => {
                 onClick={() => setIsPantys(!isPantys)}
               />
               <label className="form-check-label" htmlFor="pantysCheck">
-                Pantys/Socks
+                Pantys
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="socksCheck"
+                onClick={() => setIsSocks(!isSocks)}
+              />
+              <label className="form-check-label" htmlFor="socksCheck">
+                Socks
               </label>
             </div>
           </div>
