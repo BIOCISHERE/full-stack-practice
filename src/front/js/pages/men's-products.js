@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -7,171 +7,43 @@ import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 export const MensProducts = () => {
   const { store, actions } = useContext(Context);
 
-  const response1 = [
-    // we need to decide what are the categories going to be
-    {
-      id: "25",
-      name: "T-Shrit",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "26",
-      name: "T-Shrit",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "27",
-      name: "Hoodie",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "28",
-      name: "Sweater",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "29",
-      name: "Pant",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "30",
-      name: "Pant",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "31",
-      name: "Jean",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "32",
-      name: "Jean",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "33",
-      name: "Wallet",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "34",
-      name: "Wallet",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "35",
-      name: "Belt",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "36",
-      name: "Belt",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "37",
-      name: "Scarf",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "38",
-      name: "Scarf",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "39",
-      name: "Underpants",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "40",
-      name: "Boxer",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "41",
-      name: "Sock",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-    {
-      id: "42",
-      name: "Sock",
-      cost: "10.000",
-      rating: "3",
-      ratingVotes: "100",
-      category: "1",
-      amount: "10",
-    },
-  ];
+  const [isTShirt, setIsTShirt] = useState(false);
+  const [isSweaters, setIsSweaters] = useState(false);
+  const [isHoodies, setIsHoodies] = useState(false);
+  const [isPants, setIsPants] = useState(false);
+  const [isJeans, setIsJeans] = useState(false);
+  const [isWallets, setIsWallets] = useState(false);
+  const [isBelts, setIsBelts] = useState(false);
+  const [isScarfs, setIsScarfs] = useState(false);
+  const [isSocks, setIsSocks] = useState(false);
+  const [isUnderpants, setIsUnderpants] = useState(false);
+  const [isBoxers, setIsBoxers] = useState(false);
+
+  const turnClass = (info) => {
+    if (info.category == 1) {
+      return isTShirt ? "col" : "d-none";
+    } else if (info.category == 2) {
+      return isSweaters ? "col" : "d-none";
+    } else if (info.category == 3) {
+      return isHoodies ? "col" : "d-none";
+    } else if (info.category == 4) {
+      return isPants ? "col" : "d-none";
+    } else if (info.category == 6) {
+      return isJeans ? "col" : "d-none";
+    } else if (info.category == 8) {
+      return isWallets ? "col" : "d-none";
+    } else if (info.category == 9) {
+      return isBelts ? "col" : "d-none";
+    } else if (info.category == 10) {
+      return isScarfs ? "col" : "d-none";
+    } else if (info.category == 14) {
+      return isSocks ? "col" : "d-none";
+    } else if (info.category == 15) {
+      return isUnderpants ? "col" : "d-none";
+    } else if (info.category == 16) {
+      return isBoxers ? "col" : "d-none";
+    }
+  };
 
   return (
     <div className="container-fluid my-1">
@@ -197,11 +69,23 @@ export const MensProducts = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
+                id="sweatersCheck"
+                onClick={() => console.log("Sweaters Working")}
+              />
+              <label className="form-check-label" htmlFor="sweatersCheck">
+                Sweaters
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
                 id="hoodieCheck"
-                onClick={() => console.log("Hoodie Working")}
+                onClick={() => console.log("Hoodies Working")}
               />
               <label className="form-check-label" htmlFor="hoodieCheck">
-                Hoodies/Sweaters
+                Hoodies
               </label>
             </div>
             <div className="form-check">
@@ -269,19 +153,7 @@ export const MensProducts = () => {
             </div>
           </div>
           <div className="container-fluid my-1">
-            <h6>Underwear</h6>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                value=""
-                id="underpantsCheck"
-                onClick={() => console.log("Underpants Working")}
-              />
-              <label className="form-check-label" htmlFor="underpantsCheck">
-                Underpants/Boxers
-              </label>
-            </div>
+            <h6>Undergarments</h6>
             <div className="form-check">
               <input
                 className="form-check-input"
@@ -292,6 +164,30 @@ export const MensProducts = () => {
               />
               <label className="form-check-label" htmlFor="socksCheck">
                 Socks
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="underpantsCheck"
+                onClick={() => console.log("Underpants Working")}
+              />
+              <label className="form-check-label" htmlFor="underpantsCheck">
+                Underpants
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                value=""
+                id="boxersCheck"
+                onClick={() => console.log("Boxers Working")}
+              />
+              <label className="form-check-label" htmlFor="boxersCheck">
+                Boxers
               </label>
             </div>
           </div>
