@@ -177,11 +177,11 @@ export const WomensProducts = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
-                id="jeansCheck"
-                onClick={() => setIsJeans(!isJeans)}
+                id="dressesCheck"
+                onClick={() => setIsDresses(!isDresses)}
               />
-              <label className="form-check-label" htmlFor="jeansCheck">
-                Jeans
+              <label className="form-check-label" htmlFor="dressesCheck">
+                Dresses
               </label>
             </div>
             <div className="form-check">
@@ -189,11 +189,11 @@ export const WomensProducts = () => {
                 className="form-check-input"
                 type="checkbox"
                 value=""
-                id="dressesCheck"
-                onClick={() => setIsDresses(!isDresses)}
+                id="jeansCheck"
+                onClick={() => setIsJeans(!isJeans)}
               />
-              <label className="form-check-label" htmlFor="dressesCheck">
-                Dresses
+              <label className="form-check-label" htmlFor="jeansCheck">
+                Jeans
               </label>
             </div>
           </div>
@@ -249,7 +249,7 @@ export const WomensProducts = () => {
             </div>
           </div>
           <div className="container-fluid my-1">
-            <h6>Underwear</h6>
+            <h6>Undergarments</h6>
             <div className="form-check">
               <input
                 className="form-check-input"
