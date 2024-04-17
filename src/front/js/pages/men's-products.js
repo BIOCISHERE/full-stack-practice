@@ -269,31 +269,7 @@ export const MensProducts = () => {
         <div className="col-10 border border-primary">
           <div className="container-fluid">
             <div className="row row-cols-xm-1 row-cols-sm-2 row-cols-md-4 g-4">
-              <div className="col">
-                <div className="card my-1">
-                  <img
-                    className="card-image-top img-fluid"
-                    src={tShirtUrl}
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">T-shirt</h5>
-                    <div className="d-flex">
-                      <span className="card-text me-auto">$4000</span>
-                      <span className="card-text fauxLeters fs-5">
-                        <FaRegHeart />
-                      </span>
-                    </div>
-                    <span className="card-text fauxLeters">
-                      {actions.turnRating(4)}
-                    </span>
-                    <span className="card-text ms-1">(200)</span> <br />
-                    <Link to="/" className="btn btn-primary mt-1">
-                      Go somewhere
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              {returnProducts()}
             </div>
           </div>
         </div>

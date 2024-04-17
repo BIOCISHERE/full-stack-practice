@@ -79,11 +79,11 @@ export const WomensProducts = () => {
               <h5 className="card-title">{item.name}</h5>
               <div className="d-flex">
                 <span className="card-text me-auto">${item.cost}</span>
-                <span className="card-text fauxLeters fs-5">
+                <span className="card-text fauxLetters fs-5">
                   <FaRegHeart />
                 </span>
               </div>
-              <span className="card-text fauxLeters">
+              <span className="card-text fauxLetters">
                 {actions.turnRating(item.rating)}
               </span>
               <span className="card-text ms-1">({item.ratingVotes})</span>
@@ -108,11 +108,11 @@ export const WomensProducts = () => {
               <h5 className="card-title">{item.name}</h5>
               <div className="d-flex">
                 <span className="card-text me-auto">${item.cost}</span>
-                <span className="card-text fauxLeters fs-5">
+                <span className="card-text fauxLetters fs-5">
                   <FaRegHeart />
                 </span>
               </div>
-              <span className="card-text fauxLeters">
+              <span className="card-text fauxLetters">
                 {actions.turnRating(item.rating)}
               </span>
               <span className="card-text ms-1">({item.ratingVotes})</span>
