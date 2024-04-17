@@ -105,7 +105,7 @@ export const MensProducts = () => {
                 </span>
               </div>
               <span className="card-text fauxLetters">
-                {actions - turnRating(item.rating)}
+                {actions.turnRating(item.rating)}
               </span>
               <span className="card-text ms-1">({item.ratingVotes})</span>{" "}
               <br />
@@ -132,7 +132,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="tshirtCheck"
-                onClick={() => console.log("T-Shirt Working")}
+                onClick={() => setIsTShirt(!isTShirt)}
               />
               <label className="form-check-label" htmlFor="tshirtCheck">
                 T-shirts
@@ -144,7 +144,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="sweatersCheck"
-                onClick={() => console.log("Sweaters Working")}
+                onClick={() => setIsSweaters(!isSweaters)}
               />
               <label className="form-check-label" htmlFor="sweatersCheck">
                 Sweaters
@@ -156,7 +156,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="hoodieCheck"
-                onClick={() => console.log("Hoodies Working")}
+                onClick={() => setIsHoodies(!isHoodies)}
               />
               <label className="form-check-label" htmlFor="hoodieCheck">
                 Hoodies
@@ -168,7 +168,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="pantsCheck"
-                onClick={() => console.log("Pants Working")}
+                onClick={() => setIsPants(!isPants)}
               />
               <label className="form-check-label" htmlFor="pantsCheck">
                 Pants
@@ -180,7 +180,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="jeansCheck"
-                onClick={() => console.log("Jeans Working")}
+                onClick={() => setIsJeans(!isJeans)}
               />
               <label className="form-check-label" htmlFor="jeansCheck">
                 Jeans
@@ -195,7 +195,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="walletsCheck"
-                onClick={() => console.log("Wallets Working")}
+                onClick={() => setIsWallets(!isWallets)}
               />
               <label className="form-check-label" htmlFor="walletsCheck">
                 Wallets
@@ -207,7 +207,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="beltsCheck"
-                onClick={() => console.log("Belts Working")}
+                onClick={() => setIsBelts(!isBelts)}
               />
               <label className="form-check-label" htmlFor="beltsCheck">
                 Belts
@@ -219,7 +219,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="scarfsCheck"
-                onClick={() => console.log("Scarfs Working")}
+                onClick={() => setIsScarfs(!isScarfs)}
               />
               <label className="form-check-label" htmlFor="scarfsCheck">
                 Scarfs
@@ -234,7 +234,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="socksCheck"
-                onClick={() => console.log("Socks Working")}
+                onClick={() => setIsSocks(!isSocks)}
               />
               <label className="form-check-label" htmlFor="socksCheck">
                 Socks
@@ -246,7 +246,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="underpantsCheck"
-                onClick={() => console.log("Underpants Working")}
+                onClick={() => setIsUnderpants(!isUnderpants)}
               />
               <label className="form-check-label" htmlFor="underpantsCheck">
                 Underpants
@@ -258,7 +258,7 @@ export const MensProducts = () => {
                 type="checkbox"
                 value=""
                 id="boxersCheck"
-                onClick={() => console.log("Boxers Working")}
+                onClick={() => setIsBoxers(!isBoxers)}
               />
               <label className="form-check-label" htmlFor="boxersCheck">
                 Boxers
