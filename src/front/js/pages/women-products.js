@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
-export const WomensProducts = () => {
+export const WomenProducts = () => {
   const { store, actions } = useContext(Context);
 
   const [isTShirt, setIsTShirt] = useState(false);

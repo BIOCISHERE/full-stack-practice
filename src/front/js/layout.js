@@ -6,12 +6,13 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { WomensProducts } from "./pages/women's-products";
+import { WomenProducts } from "./pages/women-products";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { MensProducts } from "./pages/men's-products";
+import { MenProducts } from "./pages/men-products";
+import { FootwearProducts } from "./pages/footwear-products";
 
 //create your first component
 const Layout = () => {
@@ -31,8 +32,9 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
-            <Route element={<WomensProducts />} path="/womens-products" />
-            <Route element={<MensProducts />} path="/mens-products" />
+            <Route element={<WomenProducts />} path="/women-products" />
+            <Route element={<MenProducts />} path="/men-products" />
+            <Route element={<FootwearProducts />} path="/footwear-products" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />

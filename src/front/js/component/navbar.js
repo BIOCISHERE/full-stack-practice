@@ -44,18 +44,18 @@ export const Navbar = () => {
               <Link
                 className="nav-link fauxText"
                 aria-current="page"
-                to="/womens-products"
+                to="/women-products"
               >
                 Women
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link fauxText" to="/mens-products">
+              <Link className="nav-link fauxText" to="/men-products">
                 Men
               </Link>
             </li>
             <li className="nav-item me-5">
-              <Link className="nav-link fauxText" to="/">
+              <Link className="nav-link fauxText" to="/footwear-products">
                 Footwear
               </Link>
             </li>
