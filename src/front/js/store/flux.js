@@ -120,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 11,
-          name: "Pant",
+          name: "Pants",
           cost: 14000,
           rating: 4,
           ratingVotes: 300,
@@ -130,7 +130,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 12,
-          name: "Pant",
+          name: "Pants",
           cost: 14000,
           rating: 2,
           ratingVotes: 20,
@@ -140,7 +140,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 13,
-          name: "Pant",
+          name: "Pants",
           cost: 14000,
           rating: 3,
           ratingVotes: 155,
@@ -150,7 +150,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 14,
-          name: "Pant",
+          name: "Pants",
           cost: 14000,
           rating: 5,
           ratingVotes: 351,

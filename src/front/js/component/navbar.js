@@ -56,7 +56,7 @@ export const Navbar = () => {
             </li>
             <li className="nav-item me-5">
               <Link className="nav-link fauxText" to="/">
-                Shoes
+                Footwear
               </Link>
             </li>
             <li className="nav-item dropdown me-1">
