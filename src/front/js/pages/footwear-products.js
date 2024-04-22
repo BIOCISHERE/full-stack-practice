@@ -5,6 +5,24 @@ import { Context } from "../store/appContext";
 import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
 export const FootwearProducts = () => {
+  const { store, actions } = useContext(Context);
+
+  const [isUrban, setIsUrban] = useState(false);
+  const [isSport, setIsSport] = useState(false);
+  const [isShoe, setIsShoe] = useState(false);
+  const [isSandals, setIsSandals] = useState(false);
+
+  const turnClass = (info) => {
+    if (info.category == 17) {
+      return isUrban ? "col" : "d-none";
+    } else if (info.category == 18) {
+      return isSport ? "col" : "d-none";
+    } else if (info.category == 19) {
+      return isShoe ? "col" : "d-none";
+    } else if (info.category == 20) {
+      return isSandals ? "col" : "d-none";
+    }
+  };
   return (
     <div className="container-fluid my-1">
       <div className="row">
