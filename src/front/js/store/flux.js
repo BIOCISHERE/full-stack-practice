@@ -420,7 +420,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 41,
-          name: "Sock",
+          name: "Socks",
           cost: 3000,
           rating: 5,
           ratingVotes: 56,
@@ -430,7 +430,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 42,
-          name: "Sock",
+          name: "Socks",
           cost: 3000,
           rating: 4,
           ratingVotes: 70,
@@ -440,7 +440,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 43,
-          name: "Sock",
+          name: "Socks",
           cost: 3000,
           rating: 5,
           ratingVotes: 80,
@@ -450,7 +450,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 44,
-          name: "Sock",
+          name: "Socks",
           cost: 3000,
           rating: 5,
           ratingVotes: 56,
@@ -460,7 +460,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 45,
-          name: "Underpant",
+          name: "Underpants",
           cost: 5000,
           rating: 5,
           ratingVotes: 198,
@@ -470,7 +470,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 46,
-          name: "Underpant",
+          name: "Underpants",
           cost: 5000,
           rating: 4,
           ratingVotes: 98,
@@ -480,7 +480,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 47,
-          name: "Boxer",
+          name: "Boxers",
           cost: 6000,
           rating: 3,
           ratingVotes: 298,
@@ -490,7 +490,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 48,
-          name: "Boxer",
+          name: "Boxers",
           cost: 6000,
           rating: 4,
           ratingVotes: 321,
@@ -500,7 +500,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 49,
-          name: "Urban Sneaker",
+          name: "Urban Sneakers",
           cost: 20000,
           rating: 5,
           ratingVotes: 400,
@@ -510,7 +510,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 50,
-          name: "Urban Sneaker",
+          name: "Urban Sneakers",
           cost: 20000,
           rating: 4,
           ratingVotes: 300,
@@ -520,7 +520,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 53,
-          name: "Sport Sneaker",
+          name: "Sport Sneakers",
           cost: 25000,
           rating: 5,
           ratingVotes: 480,
@@ -530,7 +530,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 54,
-          name: "Sport Sneaker",
+          name: "Sport Sneakers",
           cost: 25000,
           rating: 4,
           ratingVotes: 320,
@@ -540,7 +540,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 57,
-          name: "Shoe",
+          name: "Shoes",
           cost: 18000,
           rating: 5,
           ratingVotes: 200,
@@ -550,7 +550,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           id: 58,
-          name: "Shoe",
+          name: "Shoes",
           cost: 18000,
           rating: 3,
           ratingVotes: 90,
