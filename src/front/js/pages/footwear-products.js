@@ -111,7 +111,7 @@ export const FootwearProducts = () => {
                 type="checkbox"
                 value=""
                 id="urbanCheck"
-                onClick={() => console.log("Urban Working")}
+                onClick={() => setIsUrban(!isUrban)}
               />
               <label className="form-check-label" htmlFor="urbanCheck">
                 Urban Sneakers
@@ -123,7 +123,7 @@ export const FootwearProducts = () => {
                 type="checkbox"
                 value=""
                 id="sportCheck"
-                onClick={() => console.log("Sport Working")}
+                onClick={() => setIsSport(!isSport)}
               />
               <label className="form-check-label" htmlFor="sportCheck">
                 Sport Sneakers
@@ -135,7 +135,7 @@ export const FootwearProducts = () => {
                 type="checkbox"
                 value=""
                 id="shoesCheck"
-                onClick={() => console.log("Shoes Working")}
+                onClick={() => setIsShoe(!isShoe)}
               />
               <label className="form-check-label" htmlFor="shoesCheck">
                 Shoes
@@ -147,7 +147,7 @@ export const FootwearProducts = () => {
                 type="checkbox"
                 value=""
                 id="sandalsCheck"
-                onClick={() => console.log("Sandals Working")}
+                onClick={() => setIsSandals(!isSandals)}
               />
               <label className="form-check-label" htmlFor="sandalsCheck">
                 Sandals
@@ -158,34 +158,7 @@ export const FootwearProducts = () => {
         <div className="col-10 border border-primary">
           <div className="container-fluid">
             <div className="row row-cols-xm-1 row-cols-sm-2 row-cols-md-4 g-4">
-              <div className="col">
-                <div className="card my-1">
-                  <img
-                    className="card-image-top img-fluid"
-                    src={tShirtUrl}
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{test[0].name}</h5>
-                    <div className="d-flex">
-                      <span className="card-text me-auto">${test[0].cost}</span>
-                      <span className="card-text fauxLetters fs-5">
-                        <FaRegHeart />
-                      </span>
-                    </div>
-                    <span className="card-text fauxLetters">
-                      {actions.turnRating(test[0].rating)}
-                    </span>
-                    <span className="card-text ms-1">
-                      ({test[0].ratingVotes})
-                    </span>{" "}
-                    <br />
-                    <Link to="/" className="btn btn-primary mt-1">
-                      Go somewhere
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              {returnProducts()}
             </div>
           </div>
         </div>
