@@ -74,9 +74,9 @@ export const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
+                  <Link className="dropdown-item" to="/log-in">
+                    Log-in
+                  </Link>
                 </li>
                 <li>
                   <a className="dropdown-item" href="#">
