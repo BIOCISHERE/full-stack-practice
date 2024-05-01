@@ -9,8 +9,18 @@ export const LogIn = () => {
 
   const [isEmail, setIsEmail] = useState("");
   const [isPassword, setIsPassword] = useState("");
-  const [isConfirm, setIsConfirm] = useState(""); //this the confirm password state
+  //const [isConfirm, setIsConfirm] = useState(""); //this the confirm password state
   const [isShow, setIsShow] = useState(false); // we will use this for the check to hide or show the password
+
+  const sendInfo = () => {
+    if (isEmail == "") {
+      return alert("Please type your email");
+    } else if (isPassword == "") {
+      return alert("Please type your password");
+    } else {
+      console.log(isEmail, isPassword);
+    }
+  };
 
   return (
     <div className="container-fluid">
@@ -27,7 +37,7 @@ export const LogIn = () => {
                 className="form-control"
                 id="emailInput"
                 aria-describedby="emailHelp"
-                placeholder="example@gmail.com"
+                placeholder="Type your email"
                 value={isEmail}
                 onChange={(e) => setIsEmail(e.target.value)}
               />
@@ -39,25 +49,25 @@ export const LogIn = () => {
               <label htmlFor="passwordInput" className="form-label">
                 Password
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="passwordInput"
-                value={isPassword}
-                onChange={(e) => setIsPassword(e.target.value)}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="confirmInput" className="form-label">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="confirmInput"
-                value={isConfirm}
-                onChange={(e) => setIsConfirm(e.target.value)}
-              />
+              {isShow ? (
+                <input
+                  type="text"
+                  className="form-control"
+                  id="passwordInput"
+                  value={isPassword}
+                  onChange={(e) => setIsPassword(e.target.value)}
+                  placeholder="Type your password"
+                />
+              ) : (
+                <input
+                  type="password"
+                  className="form-control"
+                  id="passwordInput"
+                  value={isPassword}
+                  onChange={(e) => setIsPassword(e.target.value)}
+                  placeholder="Type your password"
+                />
+              )}
             </div>
             <div className="mb-3 form-check">
               <input
@@ -71,7 +81,11 @@ export const LogIn = () => {
               </label>
             </div>
             <div className="container-fluid text-center mx-auto">
-              <button type="button" className="btn btn-primary mb-2">
+              <button
+                type="button"
+                className="btn btn-primary mb-2"
+                onClick={() => sendInfo()}
+              >
                 Submit
               </button>
             </div>
