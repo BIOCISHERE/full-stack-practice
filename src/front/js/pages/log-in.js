@@ -2,14 +2,12 @@ import React, { useContext, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
 export const LogIn = () => {
   const { store, actions } = useContext(Context);
 
   const [isEmail, setIsEmail] = useState("");
   const [isPassword, setIsPassword] = useState("");
-  //const [isConfirm, setIsConfirm] = useState(""); //this the confirm password state
   const [isShow, setIsShow] = useState(false); // we will use this for the check to hide or show the password
 
   const sendInfo = () => {
@@ -18,7 +16,11 @@ export const LogIn = () => {
     } else if (isPassword == "") {
       return alert("Please type your password");
     } else {
-      console.log(isEmail, isPassword);
+      return alert(
+        `The email is: ${isEmail}, and the password is: ${isPassword}`
+      );
+      /*we will use this alert to see if sendInfo is working,
+      in the final version of the project this will be changed*/
     }
   };
 
