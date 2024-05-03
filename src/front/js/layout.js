@@ -14,6 +14,7 @@ import { Footer } from "./component/footer";
 import { MenProducts } from "./pages/men-products";
 import { FootwearProducts } from "./pages/footwear-products";
 import { LogIn } from "./pages/log-in";
+import { SignUp } from "./pages/sign-up";
 
 //create your first component
 const Layout = () => {
@@ -37,6 +38,7 @@ const Layout = () => {
             <Route element={<MenProducts />} path="/men-products" />
             <Route element={<FootwearProducts />} path="/footwear-products" />
             <Route element={<LogIn />} path="/log-in" />
+            <Route element={<SignUp />} path="/sign-up" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
           <Footer />
