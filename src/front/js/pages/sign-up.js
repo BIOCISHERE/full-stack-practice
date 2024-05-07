@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const SignUp = () => {
+  const { store, actions } = useContext(Context);
+
+  const [isEmail, setIsEmail] = useState("");
+  const [isPassword, setIsPassword] = useState("");
+  const [isConfirm, setIsConfirm] = useState("");
+  const [isShow, setIsShow] = useState(false);
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -19,6 +26,7 @@ export const SignUp = () => {
                 className="form-control"
                 id="emailInput"
                 aria-describedby="emailHelp"
+                onChange={(e) => setIsEmail(e.target.value)}
               />
               <div id="emailHelp" className="form-text">
                 We'll never share your email with anyone else.
@@ -32,6 +40,7 @@ export const SignUp = () => {
                 type="password"
                 className="form-control"
                 id="passwordInput"
+                onChange={(e) => setIsPassword(e.target.value)}
               />
             </div>
             <div className="mb-3">
@@ -42,6 +51,7 @@ export const SignUp = () => {
                 type="password"
                 className="form-control"
                 id="confirmInput"
+                onChange={(e) => setIsConfirm(e.target.value)}
               />
             </div>
             <div className="mb-3 form-check">
@@ -49,6 +59,7 @@ export const SignUp = () => {
                 type="checkbox"
                 className="form-check-input"
                 id="checkboxInput"
+                onClick={() => setIsShow(!isShow)}
               />
               <label className="form-check-label" htmlFor="checkboxInput">
                 Check me out
