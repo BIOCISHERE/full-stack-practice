@@ -11,6 +11,23 @@ export const SignUp = () => {
   const [isConfirm, setIsConfirm] = useState("");
   const [isShow, setIsShow] = useState(false);
 
+  const registerInfo = () => {
+    if (isEmail == "") {
+      return alert("Please type a email");
+    } else if (isPassword == "") {
+      return alert("Please type a password");
+    } else if (isConfirm == "") {
+      return alert("Please confirm your password");
+    } else if (isPassword != isConfirm) {
+      return alert("The passwords don't match");
+    } else {
+      return alert(
+        `Registered. The email is ${isEmail} and the password is ${isPassword}`
+      );
+      /* we will use the alerts to see if registerInfo is working. In the final version this will be changed. */
+    }
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -36,12 +53,32 @@ export const SignUp = () => {
               <label htmlFor="passwordInput" className="form-label">
                 Password
               </label>
+              {isShow ? (
+                <input
+                  type="text"
+                  className="form-control"
+                  id="passwordInput"
+                  onChange={(e) => setIsPassword(e.target.value)}
+                />
+              ) : (
+                <input
+                  type="password"
+                  className="form-control"
+                  id="passwordInput"
+                  onChange={(e) => setIsPassword(e.target.value)}
+                />
+              )}
+            </div>
+            <div className="mb-3 form-check">
               <input
-                type="password"
-                className="form-control"
-                id="passwordInput"
-                onChange={(e) => setIsPassword(e.target.value)}
+                type="checkbox"
+                className="form-check-input"
+                id="checkboxInput"
+                onClick={() => setIsShow(!isShow)}
               />
+              <label className="form-check-label" htmlFor="checkboxInput">
+                Show password
+              </label>
             </div>
             <div className="mb-3">
               <label htmlFor="confirmInput" className="form-label">
@@ -54,19 +91,12 @@ export const SignUp = () => {
                 onChange={(e) => setIsConfirm(e.target.value)}
               />
             </div>
-            <div className="mb-3 form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="checkboxInput"
-                onClick={() => setIsShow(!isShow)}
-              />
-              <label className="form-check-label" htmlFor="checkboxInput">
-                Check me out
-              </label>
-            </div>
             <div className="container-fluid text-center mx-auto">
-              <button type="button" className="btn btn-primary mb-2">
+              <button
+                type="button"
+                className="btn btn-primary mb-2"
+                onClick={() => registerInfo()}
+              >
                 Submit
               </button>
             </div>
