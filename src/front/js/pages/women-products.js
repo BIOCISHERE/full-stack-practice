@@ -69,65 +69,65 @@ export const WomenProducts = () => {
     ) {
       return store.womenProducts.map((item, index) => (
         <div className="col" key={index}>
-          <div className="card my-1">
-            <img
-              className="card-image-top img-fluid"
-              src={tShirtUrl}
-              alt="..."
-            />
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <div className="d-flex">
-                <span className="card-text me-auto">${item.cost}</span>
-                <span className="card-text fauxLetters fs-5">
-                  <FaRegHeart />
+          <Link to={linkManager(item.id)} className="text-decoration-none">
+            <div className="card my-1">
+              <img
+                className="card-image-top img-fluid"
+                src={tShirtUrl}
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <div className="d-flex">
+                  <span className="card-text me-auto">${item.cost}</span>
+                  <span className="card-text fauxLetters fs-5">
+                    <FaRegHeart />
+                  </span>
+                </div>
+                <span className="card-text fauxLetters">
+                  {actions.turnRating(item.rating)}
                 </span>
+                <span className="card-text ms-1">({item.ratingVotes})</span>
+                <br />
               </div>
-              <span className="card-text fauxLetters">
-                {actions.turnRating(item.rating)}
-              </span>
-              <span className="card-text ms-1">({item.ratingVotes})</span>
-              <br />
-              <Link to="/" className="btn btn-primary mt-1">
-                Go somewhere
-              </Link>
             </div>
-          </div>
+          </Link>
         </div>
       ));
     } else {
       return store.womenProducts.map((item, index) => (
         <div className={turnClass(item)} key={index}>
-          <div className="card my-1">
-            <img
-              className="card-image-top img-fluid"
-              src={tShirtUrl}
-              alt="..."
-            />
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <div className="d-flex">
-                <span className="card-text me-auto">${item.cost}</span>
-                <span className="card-text fauxLetters fs-5">
-                  <FaRegHeart />
+          <Link to={linkManager(item.id)} className="text-decoration-none">
+            <div className="card my-1">
+              <img
+                className="card-image-top img-fluid"
+                src={tShirtUrl}
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <div className="d-flex">
+                  <span className="card-text me-auto">${item.cost}</span>
+                  <span className="card-text fauxLetters fs-5">
+                    <FaRegHeart />
+                  </span>
+                </div>
+                <span className="card-text fauxLetters">
+                  {actions.turnRating(item.rating)}
                 </span>
+                <span className="card-text ms-1">({item.ratingVotes})</span>
+                <br />
               </div>
-              <span className="card-text fauxLetters">
-                {actions.turnRating(item.rating)}
-              </span>
-              <span className="card-text ms-1">({item.ratingVotes})</span>
-              <br />
-              <Link to="/" className="btn btn-primary mt-1">
-                Go somewhere
-              </Link>
             </div>
-          </div>
+          </Link>
         </div>
       ));
     }
   };
 
-  useEffect(() => {}, []);
+  const linkManager = (num) => {
+    return `/women-products/${num}`;
+  };
 
   return (
     <div className="container-fluid my-1">
