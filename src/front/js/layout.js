@@ -15,6 +15,7 @@ import { MenProducts } from "./pages/men-products";
 import { FootwearProducts } from "./pages/footwear-products";
 import { LogIn } from "./pages/log-in";
 import { SignUp } from "./pages/sign-up";
+import { WomenProductView } from "./pages/women-product-view";
 
 //create your first component
 const Layout = () => {
@@ -35,6 +36,7 @@ const Layout = () => {
             <Route element={<Demo />} path="/demo" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<WomenProducts />} path="/women-products" />
+            <Route element={<WomenProductView />} path="/women-products/:id" />
             <Route element={<MenProducts />} path="/men-products" />
             <Route element={<FootwearProducts />} path="/footwear-products" />
             <Route element={<LogIn />} path="/log-in" />
