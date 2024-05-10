@@ -51,6 +51,10 @@ export const WomenProducts = () => {
     }
   };
 
+  const linkManager = (num) => {
+    return `/products/${num}`;
+  };
+
   const returnProducts = () => {
     if (
       !isTShirt &&
@@ -123,10 +127,6 @@ export const WomenProducts = () => {
         </div>
       ));
     }
-  };
-
-  const linkManager = (num) => {
-    return `/women-products/${num}`;
   };
 
   return (
