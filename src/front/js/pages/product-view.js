@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
 export const ProductView = () => {
   const { store, actions } = useContext(Context);
@@ -17,18 +18,40 @@ export const ProductView = () => {
                 <img className="img-fluid" src={tShirtUrl} alt="..." />
               </div>
               <div className="col-4 border border-primary">
-                <h1>The id is: {store.fullResponse[id - 1].id}</h1>
-                <h1>The name is: {store.fullResponse[id - 1].name}</h1>
-                <h1>The cost is: {store.fullResponse[id - 1].cost}</h1>
-                <h1>The rating is: {store.fullResponse[id - 1].rating}</h1>
-                <h1>
-                  The ratingVotes is : {store.fullResponse[id - 1].ratingVotes}
-                </h1>
-                <h1>The category is: {store.fullResponse[id - 1].category}</h1>
-                <h1>The amount is: {store.fullResponse[id - 1].amount}</h1>
-                <h1>
-                  This product is for: {store.fullResponse[id - 1].productFor}
-                </h1>
+                <div className="d-flex">
+                  <span className="fs-2 me-auto text-break">
+                    {store.fullResponse[id - 1].name}
+                  </span>
+                  <span className="fauxLetters fs-2">
+                    <FaRegHeart />
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span className="mx-1 fs-5">
+                    {store.fullResponse[id - 1].rating}
+                  </span>
+                  <span className="fauxLetters mx-1">
+                    {actions.turnRating(store.fullResponse[id - 1].rating)}
+                  </span>
+                  <span className="mx-1 fs-5">
+                    ({store.fullResponse[id - 1].ratingVotes})
+                  </span>
+                </div>
+                <div className="d-flex">
+                  <span className="fs-1">
+                    $ {store.fullResponse[id - 1].cost}
+                  </span>
+                </div>
+                <select
+                  className="form-select border border-primary"
+                  aria-label="Select your size"
+                  onChange={(e) => console.log(e.target.value)}
+                >
+                  <option defaultValue>Choose size</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
               </div>
             </div>
           </div>
