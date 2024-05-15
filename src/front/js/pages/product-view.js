@@ -18,7 +18,7 @@ export const ProductView = () => {
                 <img className="img-fluid" src={tShirtUrl} alt="..." />
               </div>
               <div className="col-4 border border-primary">
-                <div className="d-flex">
+                <div className="d-flex mt-2">
                   <span className="fs-2 me-auto text-break">
                     {store.fullResponse[id - 1].name}
                   </span>
@@ -37,21 +37,56 @@ export const ProductView = () => {
                     ({store.fullResponse[id - 1].ratingVotes})
                   </span>
                 </div>
-                <div className="d-flex">
+                <div className="d-flex mt-2">
                   <span className="fs-1">
                     $ {store.fullResponse[id - 1].cost}
                   </span>
                 </div>
-                <select
-                  className="form-select border border-primary"
-                  aria-label="Select your size"
-                  onChange={(e) => console.log(e.target.value)}
-                >
-                  <option defaultValue>Choose size</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
+                <div className="container-fluid mt-2">
+                  <label htmlFor="selectSize">Select size:</label>
+                  <select
+                    id="selectSize"
+                    className="form-select border border-dark fauxBorder w-50"
+                    aria-label="Select your size"
+                    name="selectedSize"
+                    onChange={(e) => console.log(e.target.value)}
+                  >
+                    <option defaultValue>S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                  </select>
+                </div>
+                <div className="container-fluid mt-2">
+                  <label htmlFor="selectAmount">Select amount:</label>
+                  <select
+                    id="selectAmount"
+                    className="form-select border border-dark fauxBorder w-50"
+                    aria-label="Select how many"
+                    name="selectedAmount"
+                    onChange={(e) => console.log(e.target.value)}
+                  >
+                    <option defaultValue>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+                <div className="container-fluid mt-2">
+                  <button
+                    type="button"
+                    className="btn btn-dark fauxColor w-100"
+                    onClick={() => console.log("test")}
+                  >
+                    Add to cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
