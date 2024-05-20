@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
 
 export const WomenProducts = () => {
   const { store, actions } = useContext(Context);
@@ -51,10 +50,6 @@ export const WomenProducts = () => {
     }
   };
 
-  const linkManager = (num) => {
-    return `/products/${num}`;
-  };
-
   const returnProducts = () => {
     if (
       !isTShirt &&
@@ -73,7 +68,10 @@ export const WomenProducts = () => {
     ) {
       return store.womenProducts.map((item, index) => (
         <div className="col" key={index}>
-          <Link to={linkManager(item.id)} className="text-decoration-none">
+          <Link
+            to={actions.linkManager(item.id)}
+            className="text-decoration-none"
+          >
             <div className="card my-1">
               <img
                 className="card-image-top img-fluid"
@@ -84,9 +82,6 @@ export const WomenProducts = () => {
                 <h5 className="card-title">{item.name}</h5>
                 <div className="d-flex">
                   <span className="card-text me-auto">${item.cost}</span>
-                  <span className="card-text fauxLetters fs-5">
-                    <FaRegHeart />
-                  </span>
                 </div>
                 <span className="card-text fauxLetters">
                   {actions.turnRating(item.rating)}
@@ -101,7 +96,10 @@ export const WomenProducts = () => {
     } else {
       return store.womenProducts.map((item, index) => (
         <div className={turnClass(item)} key={index}>
-          <Link to={linkManager(item.id)} className="text-decoration-none">
+          <Link
+            to={actions.linkManager(item.id)}
+            className="text-decoration-none"
+          >
             <div className="card my-1">
               <img
                 className="card-image-top img-fluid"
@@ -112,9 +110,6 @@ export const WomenProducts = () => {
                 <h5 className="card-title">{item.name}</h5>
                 <div className="d-flex">
                   <span className="card-text me-auto">${item.cost}</span>
-                  <span className="card-text fauxLetters fs-5">
-                    <FaRegHeart />
-                  </span>
                 </div>
                 <span className="card-text fauxLetters">
                   {actions.turnRating(item.rating)}
@@ -132,7 +127,7 @@ export const WomenProducts = () => {
   return (
     <div className="container-fluid my-1">
       <div className="row">
-        <div className="col-2 border border-primary">
+        <div className="col-2 border border-dark-subtle rounded-end">
           <h4>Womenswear</h4>
           <div className="container-fluid my-1">
             <h6>Type of garment</h6>
@@ -300,7 +295,7 @@ export const WomenProducts = () => {
             </div>
           </div>
         </div>
-        <div className="col-10 border border-primary">
+        <div className="col-10">
           <div className="container-fluid">
             <div className="row row-cols-xm-1 row-cols-sm-2 row-cols-md-4 g-4">
               {returnProducts()}

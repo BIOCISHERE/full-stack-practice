@@ -703,6 +703,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           return info;
         }
       },
+      linkManager: (num) => {
+        return `/products/${num}`;
+      },
     },
   };
 };
