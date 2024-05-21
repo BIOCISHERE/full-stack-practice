@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -133,6 +133,10 @@ export const ProductView = () => {
       return <FaRegHeart type="button" onClick={() => setIsFav(!isFav)} />;
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container-fluid">

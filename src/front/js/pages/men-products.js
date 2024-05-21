@@ -61,59 +61,55 @@ export const MenProducts = () => {
     ) {
       return store.menProducts.map((item, index) => (
         <div className="col" key={index}>
-          <div className="card my-1">
-            <img
-              className="card-image-top img-fluid"
-              src={tShirtUrl}
-              alt="..."
-            />
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <div className="d-flex">
-                <span className="card-text me-auto">${item.cost}</span>
-                <span className="card-text fauxLetters fs-5">
-                  <FaRegHeart />
+          <Link
+            to={actions.linkManager(item.id)}
+            className="text-decoration-none"
+          >
+            <div className="card my-1">
+              <img
+                className="card-image-top img-fluid"
+                src={tShirtUrl}
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <div className="d-flex">
+                  <span className="card-text me-auto">${item.cost}</span>
+                </div>
+                <span className="card-text fauxLetters">
+                  {actions.turnRating(item.rating)}
                 </span>
+                <span className="card-text ms-1">({item.ratingVotes})</span>
               </div>
-              <span className="card-text fauxLetters">
-                {actions.turnRating(item.rating)}
-              </span>
-              <span className="card-text ms-1">({item.ratingVotes})</span>{" "}
-              <br />
-              <Link to="/" className="btn btn-primary mt-1">
-                Go somewhere
-              </Link>
             </div>
-          </div>
+          </Link>
         </div>
       ));
     } else {
       return store.menProducts.map((item, index) => (
         <div className={turnClass(item)} key={index}>
-          <div className="card my-1">
-            <img
-              className="card-image-top img-fluid"
-              src={tShirtUrl}
-              alt="..."
-            />
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <div className="d-flex">
-                <span className="card-text me-auto">${item.cost}</span>
-                <span className="card-text fauxLetters fs-5">
-                  <FaRegHeart />
+          <Link
+            to={actions.linkManager(item.id)}
+            className="text-decoration-none"
+          >
+            <div className="card my-1">
+              <img
+                className="card-image-top img-fluid"
+                src={tShirtUrl}
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <div className="d-flex">
+                  <span className="card-text me-auto">${item.cost}</span>
+                </div>
+                <span className="card-text fauxLetters">
+                  {actions.turnRating(item.rating)}
                 </span>
+                <span className="card-text ms-1">({item.ratingVotes})</span>
               </div>
-              <span className="card-text fauxLetters">
-                {actions.turnRating(item.rating)}
-              </span>
-              <span className="card-text ms-1">({item.ratingVotes})</span>{" "}
-              <br />
-              <Link to="/" className="btn btn-primary mt-1">
-                Go somewhere
-              </Link>
             </div>
-          </div>
+          </Link>
         </div>
       ));
     }
@@ -122,7 +118,7 @@ export const MenProducts = () => {
   return (
     <div className="container-fluid my-1">
       <div className="row">
-        <div className="col-2 border border-primary">
+        <div className="col-2 border border-dark-subtle rounded-end">
           <h4>Menswear</h4>
           <div className="container-fluid my-1">
             <h6>Type of garmnet</h6>
@@ -266,7 +262,7 @@ export const MenProducts = () => {
             </div>
           </div>
         </div>
-        <div className="col-10 border border-primary">
+        <div className="col-10">
           <div className="container-fluid">
             <div className="row row-cols-xm-1 row-cols-sm-2 row-cols-md-4 g-4">
               {returnProducts()}
