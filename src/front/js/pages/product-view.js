@@ -48,19 +48,21 @@ export const ProductView = () => {
         </span>
       );
     } else if (store.fullResponse[id - 1].productFor == "Footwear") {
-      <span>
-        <Link to="/" className="mx-1">
-          Home
-        </Link>
-        {">"}
-        <Link to="/footwear-products" className="mx-1">
-          Footwear
-        </Link>
-        {">"}
-        <Link to="#" className="mx-1">
-          {store.fullResponse[id - 1].name}
-        </Link>
-      </span>;
+      return (
+        <span>
+          <Link to="/" className="mx-1">
+            Home
+          </Link>
+          {">"}
+          <Link to="/footwear-products" className="mx-1">
+            Footwear
+          </Link>
+          {">"}
+          <Link to="#" className="mx-1">
+            {store.fullResponse[id - 1].name}
+          </Link>
+        </span>
+      );
     } else {
       return <span>Fail</span>;
     }

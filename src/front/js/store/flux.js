@@ -519,7 +519,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           productFor: "Footwear",
         },
         {
-          id: 53,
+          id: 51,
           name: "Sport Sneakers",
           cost: 25000,
           rating: 5,
@@ -529,7 +529,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           productFor: "Footwear",
         },
         {
-          id: 54,
+          id: 52,
           name: "Sport Sneakers",
           cost: 25000,
           rating: 4,
@@ -539,7 +539,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           productFor: "Footwear",
         },
         {
-          id: 57,
+          id: 53,
           name: "Shoes",
           cost: 18000,
           rating: 5,
@@ -549,7 +549,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           productFor: "Footwear",
         },
         {
-          id: 58,
+          id: 54,
           name: "Shoes",
           cost: 18000,
           rating: 3,
@@ -559,7 +559,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           productFor: "Footwear",
         },
         {
-          id: 61,
+          id: 55,
           name: "Sandals",
           cost: 16000,
           rating: 4,
@@ -569,7 +569,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           productFor: "Footwear",
         },
         {
-          id: 62,
+          id: 56,
           name: "Sandals",
           cost: 16000,
           rating: 3,
