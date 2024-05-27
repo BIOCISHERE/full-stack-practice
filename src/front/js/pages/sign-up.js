@@ -11,6 +11,28 @@ export const SignUp = () => {
   const [isConfirm, setIsConfirm] = useState("");
   const [isShow, setIsShow] = useState(false);
 
+  const signUpRequest = async () => {
+    const data = [{ email: isEmail, password: isPassword }];
+    try {
+      const request = await fetch(process.env.BACKEND_URL + "api/sign-up", {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: isEmail,
+          password: isPassword,
+        }),
+      });
+
+      const result = await request.json();
+      console.log("Success", result);
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
+
   const registerInfo = () => {
     if (isEmail == "") {
       return alert("Please type a email");
@@ -21,9 +43,7 @@ export const SignUp = () => {
     } else if (isPassword != isConfirm) {
       return alert("The passwords don't match");
     } else {
-      return alert(
-        `Registered. The email is ${isEmail} and the password is ${isPassword}`
-      );
+      signUpRequest();
       /* we will use the alerts to see if registerInfo is working. In the final version this will be changed. */
     }
   };

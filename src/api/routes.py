@@ -21,6 +21,9 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+
+
+
 @api.route('/sign-up', methods=['POST'])
 def handle_sign_up():
     data = request.get_json()
@@ -37,7 +40,7 @@ def handle_sign_up():
     if User.query.filter_by(email=email).first():
         return jsonify({'error': 'Email already registered'}),400
     
-    user = User(email=email, password=password)
+    user = User(email=email, password=password, is_active=True)
     db.session.add(user)
     db.session.commit()
 
