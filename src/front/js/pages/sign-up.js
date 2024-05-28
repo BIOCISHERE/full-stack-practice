@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const SignUp = () => {
@@ -11,10 +11,15 @@ export const SignUp = () => {
   const [isConfirm, setIsConfirm] = useState("");
   const [isShow, setIsShow] = useState(false);
 
+  const [isAlert, setIsAlert] = useState(false);
+  const [isError, setIsError] = useState("TEST");
+
+  const redirect = useNavigate();
+
   const signUpRequest = async () => {
     const data = [{ email: isEmail, password: isPassword }];
     try {
-      const request = await fetch(process.env.BACKEND_URL + "api/sign-up", {
+      const request = await fetch(process.env.BACKEND_URL + "/api/sign-up", {
         method: "POST",
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -26,10 +31,25 @@ export const SignUp = () => {
         }),
       });
 
+      if (request.status === 400) {
+        const test = await request.json();
+
+        const test1 = new Array(test);
+
+        setIsAlert(true);
+        setIsError(test1[0].error);
+        return false;
+      }
+
       const result = await request.json();
-      console.log("Success", result);
+      setIsError(result);
+      //console.log("Success", result);
+      //redirect("/");
+      setIsAlert(true);
     } catch (error) {
-      console.error("Error", error);
+      setIsAlert(true);
+      setIsError(error);
+      return false;
     }
   };
 
@@ -48,11 +68,25 @@ export const SignUp = () => {
     }
   };
 
+  const alertManager = () => {
+    if (isAlert) {
+      return (
+        <div
+          className="alert alert-danger container-fluid text-center"
+          role="alert"
+        >
+          {isError}
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-6 border border-primary mx-auto my-4">
+        <div className="col-6 border border-dark-subtle rounded mx-auto my-4">
           <h1 className="text-center">Sign-up</h1>
+          {alertManager()}
           <form>
             <div className="mb-3">
               <label htmlFor="emailInput" className="form-label">

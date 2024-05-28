@@ -29,19 +29,19 @@ def handle_sign_up():
     data = request.get_json()
 
     if not data:
-        return jsonify({'error': 'No data provided'}), 400
+        return jsonify({"error": "No data provided"}), 400
     
-    email = data.get('email')
-    password = data.get('password')
+    email = data.get("email")
+    password = data.get("password")
 
     if not email or not password:
-        return jsonify({'error': 'Email and password are required'}), 400
+        return jsonify({"error": "Email and password are required"}), 400
     
     if User.query.filter_by(email=email).first():
-        return jsonify({'error': 'Email already registered'}),400
+        return jsonify({"error": "Email already registered"}),400
     
     user = User(email=email, password=password, is_active=True)
     db.session.add(user)
     db.session.commit()
 
-    return jsonify({'message': 'User created successfully'}), 201
+    return jsonify({"message": "User created successfully"}), 201
