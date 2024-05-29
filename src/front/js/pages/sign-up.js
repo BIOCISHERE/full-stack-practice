@@ -12,9 +12,16 @@ export const SignUp = () => {
   const [isShow, setIsShow] = useState(false);
 
   const [isAlert, setIsAlert] = useState(false);
-  const [isError, setIsError] = useState("TEST");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isMessage, setIsMessage] = useState("TEST");
 
   const redirect = useNavigate();
+
+  const redirectManager = () => {
+    setTimeout(() => {
+      redirect("/");
+    }, "5000");
+  };
 
   const signUpRequest = async () => {
     const data = [{ email: isEmail, password: isPassword }];
@@ -32,23 +39,28 @@ export const SignUp = () => {
       });
 
       if (request.status === 400) {
-        const test = await request.json();
+        const responseJSON = await request.json();
 
-        const test1 = new Array(test);
+        const response = new Array(responseJSON);
 
         setIsAlert(true);
-        setIsError(test1[0].error);
+        setIsMessage(response[0].error);
         return false;
       }
 
       const result = await request.json();
-      setIsError(result);
-      //console.log("Success", result);
-      //redirect("/");
-      setIsAlert(true);
+
+      const temporal = new Array(result);
+
+      setIsAlert(false);
+      setIsSuccess(true);
+      setIsMessage(
+        `${temporal[0].message}, you will be redirected in 5 seconds`
+      );
+      redirectManager();
     } catch (error) {
       setIsAlert(true);
-      setIsError(error);
+      setIsMessage(error);
       return false;
     }
   };
@@ -75,7 +87,25 @@ export const SignUp = () => {
           className="alert alert-danger container-fluid text-center"
           role="alert"
         >
-          {isError}
+          {isMessage}
+        </div>
+      );
+    } else if (isSuccess) {
+      return (
+        <div
+          className="alert alert-success container-fluid text-center"
+          role="alert"
+        >
+          {isMessage}
+        </div>
+      );
+    } else {
+      return (
+        <div
+          className="alert alert-secondary container-fluid text-center"
+          role="alert"
+        >
+          Type your info
         </div>
       );
     }
@@ -149,7 +179,11 @@ export const SignUp = () => {
               <button
                 type="button"
                 className="btn btn-primary mb-2"
-                onClick={() => registerInfo()}
+                onClick={() => {
+                  setIsAlert(false);
+                  setIsSuccess(false);
+                  registerInfo();
+                }}
               >
                 Submit
               </button>

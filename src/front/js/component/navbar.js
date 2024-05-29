@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import fauxAtelierUrl from "../../img/faux_atelier_logo.png";
 import { FaTruck, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
   return (
     <nav className="navbar navbar-expand-lg fauxColor">
       <div className="container-fluid">
@@ -84,9 +86,15 @@ export const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
+                  <div className="dropdown-item container-fluid mx-auto">
+                    <button
+                      type="button"
+                      className="btn btn-danger w-100"
+                      onClick={() => actions.logOut()}
+                    >
+                      Log-Out
+                    </button>
+                  </div>
                 </li>
               </ul>
             </li>

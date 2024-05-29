@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       message: null,
+      token: null,
+      user: null,
       demo: [
         {
           title: "FIRST",
@@ -705,6 +707,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       linkManager: (num) => {
         return `/products/${num}`;
+      },
+      logOut: () => {
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("user");
+        setStore({ token: null });
+        setStore({ user: null });
+      },
+      signUp: async () => {
+        try {
+        } catch {}
       },
     },
   };
