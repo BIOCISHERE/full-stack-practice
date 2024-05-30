@@ -13,9 +13,16 @@ export const SignUp = () => {
 
   const [isAlert, setIsAlert] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isMessage, setIsMessage] = useState("TEST");
+  const [isMessage, setIsMessage] = useState("");
 
   const redirect = useNavigate();
+
+  const testStorage = () => {
+    const testToken = localStorage.getItem("token");
+    const testUser = localStorage.getItem("user");
+    console.log(testToken);
+    console.log(testUser);
+  };
 
   const redirectManager = () => {
     setTimeout(() => {
@@ -24,7 +31,6 @@ export const SignUp = () => {
   };
 
   const signUpRequest = async () => {
-    const data = [{ email: isEmail, password: isPassword }];
     try {
       const request = await fetch(process.env.BACKEND_URL + "/api/sign-up", {
         method: "POST",
@@ -57,7 +63,11 @@ export const SignUp = () => {
       setIsMessage(
         `${temporal[0].message}, you will be redirected in 5 seconds`
       );
-      redirectManager();
+      sessionStorage.setItem("token", temporal[0].token);
+      sessionStorage.setItem("user", temporal[0].user);
+      //redirectManager();
+      //console.log(temporal[0].token);
+      //console.log(temporal[0].user);
     } catch (error) {
       setIsAlert(true);
       setIsMessage(error);
@@ -186,6 +196,13 @@ export const SignUp = () => {
                 }}
               >
                 Submit
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => testStorage()}
+              >
+                Primary
               </button>
             </div>
           </form>

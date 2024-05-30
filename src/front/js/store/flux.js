@@ -714,10 +714,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ token: null });
         setStore({ user: null });
       },
-      signUp: async () => {
-        try {
-        } catch {}
-      },
     },
   };
 };
