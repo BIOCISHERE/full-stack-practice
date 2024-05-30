@@ -63,8 +63,8 @@ export const SignUp = () => {
       setIsMessage(
         `${temporal[0].message}, you will be redirected in 5 seconds`
       );
-      sessionStorage.setItem("token", temporal[0].token);
-      sessionStorage.setItem("user", temporal[0].user);
+      //sessionStorage.setItem("token", temporal[0].token);
+      //sessionStorage.setItem("user", temporal[0].user);
       //redirectManager();
       //console.log(temporal[0].token);
       //console.log(temporal[0].user);
