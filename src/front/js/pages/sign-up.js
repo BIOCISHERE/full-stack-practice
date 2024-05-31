@@ -17,13 +17,6 @@ export const SignUp = () => {
 
   const redirect = useNavigate();
 
-  const testStorage = () => {
-    const testToken = localStorage.getItem("token");
-    const testUser = localStorage.getItem("user");
-    console.log(testToken);
-    console.log(testUser);
-  };
-
   const redirectManager = () => {
     setTimeout(() => {
       redirect("/");
@@ -61,13 +54,16 @@ export const SignUp = () => {
       setIsAlert(false);
       setIsSuccess(true);
       setIsMessage(
-        `${temporal[0].message}, you will be redirected in 5 seconds`
+        `${temporal[0].message}, you will be redirected in 5 seconds to the main page`
       );
-      //sessionStorage.setItem("token", temporal[0].token);
-      //sessionStorage.setItem("user", temporal[0].user);
-      //redirectManager();
-      //console.log(temporal[0].token);
-      //console.log(temporal[0].user);
+
+      const responseToken = await temporal[0].token;
+      const responseUser = await temporal[0].user;
+
+      sessionStorage.setItem("token", responseToken);
+      sessionStorage.setItem("user", responseUser);
+
+      redirectManager();
     } catch (error) {
       setIsAlert(true);
       setIsMessage(error);
@@ -196,13 +192,6 @@ export const SignUp = () => {
                 }}
               >
                 Submit
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => testStorage()}
-              >
-                Primary
               </button>
             </div>
           </form>
