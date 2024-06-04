@@ -24,6 +24,27 @@ export const LogIn = () => {
     }
   };
 
+  const loginRequest = async () => {
+    try {
+      const request = await fetch(process.env.BACKEND_URL + "/api/log-in", {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: isEmail,
+          password: isPassword,
+        }),
+      });
+
+      const response = await request.json();
+      console.log("Log-in response", response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">

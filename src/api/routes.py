@@ -46,7 +46,7 @@ def handle_sign_up():
 
     return jsonify({"message": "User created successfully", "token": access_token, "user": email}), 201
 
-@api.route('/login', methods=['POST'])
+@api.route('/log-in', methods=['POST'])
 def handle_log_in():
     data = request.get_json()
     if not data:
@@ -62,4 +62,4 @@ def handle_log_in():
         return jsonify({"error": "Bad email or password"}), 401
     
     access_token = create_access_token(identity=email)
-    return jsonify({"message": "Log-in successfull", "token": access_token, "user": email}),
+    return jsonify({"message": "Log-in successfull", "token": access_token, "user": email}), 201
