@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const LogIn = () => {
@@ -10,18 +10,16 @@ export const LogIn = () => {
   const [isPassword, setIsPassword] = useState("");
   const [isShow, setIsShow] = useState(false); // we will use this for the check to hide or show the password
 
-  const sendInfo = () => {
-    if (isEmail == "") {
-      return alert("Please type your email");
-    } else if (isPassword == "") {
-      return alert("Please type your password");
-    } else {
-      return alert(
-        `The email is: ${isEmail}, and the password is: ${isPassword}`
-      );
-      /*we will use this alert to see if sendInfo is working,
-      in the final version of the project this will be changed*/
-    }
+  const [isAlert, setIsAlert] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isMessage, setIsMessage] = useState("");
+
+  const redirect = useNavigate();
+
+  const redirectManager = () => {
+    setTimeout(() => {
+      redirect("/");
+    }, "5000");
   };
 
   const loginRequest = async () => {
@@ -38,6 +36,16 @@ export const LogIn = () => {
         }),
       });
 
+      if (request.status === 400 || request.status === 401) {
+        const responseJSON = await request.json();
+
+        const resultJSON = new Array(responseJSON);
+
+        setIsAlert(true);
+        setIsMessage(resultJSON[0].error);
+        return false;
+      }
+
       const response = await request.json();
       console.log("Log-in response", response);
     } catch (error) {
@@ -45,10 +53,19 @@ export const LogIn = () => {
     }
   };
 
+  const sendInfo = () => {
+    if (isEmail == "") {
+      return alert("Please type your email");
+    } else if (isPassword == "") {
+      return alert("Please type your password");
+    } else {
+      loginRequest();
+    }
+  };
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-6 border border-primary mx-auto my-4">
+        <div className="col-6 border border-dark-subtle rounded mx-auto my-4">
           <h1 className="text-center">Log-in</h1>
           <form>
             <div className="mb-3">
