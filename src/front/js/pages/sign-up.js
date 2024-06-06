@@ -42,19 +42,22 @@ export const SignUp = () => {
 
         const response = new Array(responseJSON);
 
+        const responseError = response[0].error;
+
         setIsAlert(true);
-        setIsMessage(response[0].error);
+        setIsMessage(responseError);
         return false;
       }
 
       const result = await request.json();
 
       const temporal = new Array(result);
+      const temporalMessage = temporal[0].message;
 
       setIsAlert(false);
       setIsSuccess(true);
       setIsMessage(
-        `${temporal[0].message}, you will be redirected in 5 seconds to the main page`
+        `${temporalMessage}, you will be redirected in 5 seconds to the main page`
       );
 
       const responseToken = await temporal[0].token;
@@ -73,16 +76,23 @@ export const SignUp = () => {
 
   const registerInfo = () => {
     if (isEmail == "") {
-      return alert("Please type a email");
+      setIsAlert(true);
+      setIsMessage("Please type a email");
+      return false;
     } else if (isPassword == "") {
-      return alert("Please type a password");
+      setIsAlert(true);
+      setIsMessage("Please type a password");
+      return false;
     } else if (isConfirm == "") {
-      return alert("Please confirm your password");
+      setIsAlert(true);
+      setIsMessage("Please confirm yout password");
+      return false;
     } else if (isPassword != isConfirm) {
-      return alert("The passwords don't match");
+      setIsAlert(true);
+      setIsMessage("The passwords don't match");
+      return false;
     } else {
       signUpRequest();
-      /* we will use the alerts to see if registerInfo is working. In the final version this will be changed. */
     }
   };
 

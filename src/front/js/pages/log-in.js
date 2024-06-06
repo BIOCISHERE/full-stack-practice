@@ -41,8 +41,10 @@ export const LogIn = () => {
 
         const resultJSON = new Array(responseJSON);
 
+        const resultError = resultJSON[0].error;
+
         setIsAlert(true);
-        setIsMessage(resultJSON[0].error);
+        setIsMessage(resultError);
         return false;
       }
 
@@ -53,20 +55,57 @@ export const LogIn = () => {
     }
   };
 
-  const sendInfo = () => {
+  const logInInfo = () => {
     if (isEmail == "") {
-      return alert("Please type your email");
+      setIsAlert(true);
+      setIsMessage("Please type your email");
+      return false;
     } else if (isPassword == "") {
-      return alert("Please type your password");
+      setIsAlert(true);
+      setIsMessage("Please type your password");
+      return true;
     } else {
       loginRequest();
     }
   };
+
+  const alertManager = () => {
+    if (isAlert) {
+      return (
+        <div
+          className="alert alert-danger container-fluid text-center"
+          role="alert"
+        >
+          {isMessage}
+        </div>
+      );
+    } else if (isSuccess) {
+      return (
+        <div
+          className="alert alert-success container-fluid text-center"
+          role="alert"
+        >
+          {isMessage}
+        </div>
+      );
+    } else {
+      return (
+        <div
+          className="alert alert-secondary container-fluid text-center"
+          role="alert"
+        >
+          Type your info
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-6 border border-dark-subtle rounded mx-auto my-4">
           <h1 className="text-center">Log-in</h1>
+          {alertManager()}
           <form>
             <div className="mb-3">
               <label htmlFor="emailInput" className="form-label">
@@ -124,7 +163,7 @@ export const LogIn = () => {
               <button
                 type="button"
                 className="btn btn-primary mb-2"
-                onClick={() => sendInfo()}
+                onClick={() => logInInfo()}
               >
                 Submit
               </button>
