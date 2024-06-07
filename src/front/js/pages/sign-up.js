@@ -60,11 +60,11 @@ export const SignUp = () => {
         `${temporalMessage}, you will be redirected in 5 seconds to the main page`
       );
 
-      const responseToken = await temporal[0].token;
-      const responseUser = await temporal[0].user;
+      const resultToken = await temporal[0].token;
+      const resultUser = await temporal[0].user;
 
-      sessionStorage.setItem("token", responseToken);
-      sessionStorage.setItem("user", responseUser);
+      sessionStorage.setItem("token", resultToken);
+      sessionStorage.setItem("user", resultUser);
 
       redirectManager();
     } catch (error) {

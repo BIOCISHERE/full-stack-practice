@@ -48,10 +48,28 @@ export const LogIn = () => {
         return false;
       }
 
-      const response = await request.json();
-      console.log("Log-in response", response);
+      const result = await request.json();
+
+      const temporal = new Array(result);
+      const temporalMessage = await temporal[0].message;
+
+      setIsAlert(false);
+      setIsSuccess(true);
+      setIsMessage(
+        `${temporalMessage}, you will be redirected in 5 seconds to the main page`
+      );
+
+      const resultToken = await temporal[0].token;
+      const resultUser = await temporal[0].user;
+
+      sessionStorage.setItem("token", resultToken);
+      sessionStorage.setItem("user", resultUser);
+
+      redirectManager();
     } catch (error) {
-      console.error(error);
+      setIsAlert(true);
+      setIsMessage(error);
+      return false;
     }
   };
 
