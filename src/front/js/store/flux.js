@@ -714,6 +714,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ token: null });
         setStore({ user: null });
       },
+      saveToken: () => {
+        const token = sessionStorage.getItem("token");
+
+        if (token && token != "" && token != undefined && token != null) {
+          setStore({ token: token });
+        }
+      },
     },
   };
 };

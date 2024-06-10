@@ -65,6 +65,8 @@ export const LogIn = () => {
       sessionStorage.setItem("token", resultToken);
       sessionStorage.setItem("user", resultUser);
 
+      actions.saveToken();
+
       redirectManager();
     } catch (error) {
       setIsAlert(true);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import fauxAtelierUrl from "../../img/faux_atelier_logo.png";
 import { FaTruck, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
@@ -6,6 +6,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+
   return (
     <nav className="navbar navbar-expand-lg fauxColor">
       <div className="container-fluid">
@@ -75,27 +76,34 @@ export const Navbar = () => {
                 User
               </a>
               <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" to="/log-in">
-                    Log-in
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/sign-up">
-                    Sign-up
-                  </Link>
-                </li>
-                <li>
-                  <div className="dropdown-item container-fluid mx-auto">
-                    <button
-                      type="button"
-                      className="btn btn-danger w-100"
-                      onClick={() => actions.logOut()}
-                    >
-                      Log-Out
-                    </button>
-                  </div>
-                </li>
+                {!store.token ? (
+                  <>
+                    <li>
+                      <Link className="dropdown-item" to="/log-in">
+                        Log-in
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/sign-up">
+                        Sign-up
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <div className="dropdown-item container-fluid mx-auto">
+                        <button
+                          type="button"
+                          className="btn btn-danger w-100"
+                          onClick={() => actions.logOut()}
+                        >
+                          Log-Out
+                        </button>
+                      </div>
+                    </li>
+                  </>
+                )}
               </ul>
             </li>
             <li className="nav-item me-1">
