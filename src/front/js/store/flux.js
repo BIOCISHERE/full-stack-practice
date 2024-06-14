@@ -4,6 +4,7 @@ import { FaRegStar, FaStar } from "react-icons/fa6";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      cart: [],
       message: null,
       token: null,
       user: null,
@@ -720,6 +721,18 @@ const getState = ({ getStore, getActions, setStore }) => {
         if (token && token != "" && token != undefined && token != null) {
           setStore({ token: token });
         }
+      },
+      getDefaultCart: () => {
+        const store = getStore();
+
+        let defaultCart = [];
+
+        for (let i = 1; i < store.fullResponse.length; i++) {
+          if (!defaultCart.includes(i)) {
+            defaultCart[i] = 0;
+          }
+        }
+        setStore({ cart: defaultCart });
       },
     },
   };
