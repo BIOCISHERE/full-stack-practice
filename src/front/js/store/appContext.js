@@ -31,6 +31,7 @@ const injectContext = (PassedComponent) => {
       state.actions.getMessage(); // <---- calling this function from the flux.js actions
       state.actions.filterProducts();
       state.actions.saveToken();
+      state.actions.getDefaultCart(); // <---- this later need to execute after products are fetched
     }, []);
 
     // The initial value for the context is not null anymore, but the current state of this component,

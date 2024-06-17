@@ -4,7 +4,7 @@ import { FaRegStar, FaStar } from "react-icons/fa6";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      cart: [],
+      cart: {},
       message: null,
       token: null,
       user: null,
@@ -723,16 +723,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       getDefaultCart: () => {
+        {
+          /* This function must execute after the products fetch */
+        }
         const store = getStore();
 
-        let defaultCart = [];
+        let defaultCart = {};
 
-        for (let i = 1; i < store.fullResponse.length; i++) {
-          if (!defaultCart.includes(i)) {
-            defaultCart[i] = 0;
-          }
+        for (let i = 1; i < store.fullResponse.length + 1; i++) {
+          defaultCart[i] = 0;
         }
         setStore({ cart: defaultCart });
+      },
+      addToCart: (itemId) => {
+        const store = getStore();
+
+        let updatedStore = store.cart;
+
+        updatedStore[itemId] += 1;
+
+        setStore({ cart: updatedStore });
       },
     },
   };
