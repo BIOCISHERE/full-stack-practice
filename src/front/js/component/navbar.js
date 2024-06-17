@@ -88,28 +88,6 @@ export const Navbar = () => {
                         Sign-up
                       </Link>
                     </li>
-                    <li>
-                      <div className="container-fluid">
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          onClick={() => console.log(store.cart)}
-                        >
-                          TEST
-                        </button>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="container-fluid">
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          onClick={() => actions.addToCart(1)}
-                        >
-                          add +1 to id = 1
-                        </button>
-                      </div>
-                    </li>
                   </>
                 ) : (
                   <>
