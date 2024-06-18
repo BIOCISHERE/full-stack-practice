@@ -730,17 +730,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         let defaultCart = {};
 
-        for (let i = 1; i < store.fullResponse.length + 1; i++) {
-          defaultCart[i] = 0;
-        }
+        store.fullResponse.map((obj) => {
+          defaultCart[obj.id] = 0;
+        });
+
         setStore({ cart: defaultCart });
       },
-      addToCart: (itemId) => {
+      plus1ToCart: (itemId) => {
         const store = getStore();
 
         let updatedStore = store.cart;
 
         updatedStore[itemId] += 1;
+
+        setStore({ cart: updatedStore });
+      },
+      minus1ToCart: (itemId) => {
+        const store = getStore();
+
+        let updatedStore = store.cart;
+
+        updatedStore[itemId] -= 1;
 
         setStore({ cart: updatedStore });
       },
