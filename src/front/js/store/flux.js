@@ -745,6 +745,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ cart: updatedStore });
       },
+      plusCustomToCart: (itemId, num) => {
+        const store = getStore();
+
+        let updatedStore = store.cart;
+
+        updatedStore[itemId] += Number(num);
+
+        setStore({ cart: updatedStore });
+      },
       minus1ToCart: (itemId) => {
         const store = getStore();
 
