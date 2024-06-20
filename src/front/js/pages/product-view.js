@@ -120,11 +120,19 @@ export const ProductView = () => {
     }
   };
 
-  const manageButton = () => {
+  const manageButton = (itemId, amnt) => {
+    {
+      /*
+      This func manages the add to chopping cart button.
+      Later we need to seend the other info like the size to the shopping cart.
+      */
+    }
     if (store.fullResponse[id - 1].productFor == "Footwear") {
-      return console.log(isFootwearSize, isAmount);
+      //console.log(isFootwearSize, isAmount);
+      return actions.plusCustomToCart(itemId, amnt);
     } else {
-      return console.log(isSize, isAmount);
+      //console.log(isSize, isAmount);
+      return actions.plusCustomToCart(itemId, amnt);
     }
   };
 
@@ -164,6 +172,8 @@ export const ProductView = () => {
                   <span className="fauxLetters mx-1">
                     {actions.turnRating(store.fullResponse[id - 1].rating)}
                   </span>
+                  {/* Delete this span */}
+                  <span>Id: {store.fullResponse[id - 1].id}</span>
                   <span className="mx-1 fs-5">
                     ({store.fullResponse[id - 1].ratingVotes})
                   </span>
@@ -199,7 +209,9 @@ export const ProductView = () => {
                   <button
                     type="button"
                     className="btn btn-dark fauxColor w-100"
-                    onClick={() => manageButton()}
+                    onClick={() =>
+                      manageButton(store.fullResponse[id - 1].id, isAmount)
+                    }
                   >
                     Add to cart
                   </button>
