@@ -172,8 +172,6 @@ export const ProductView = () => {
                   <span className="fauxLetters mx-1">
                     {actions.turnRating(store.fullResponse[id - 1].rating)}
                   </span>
-                  {/* Delete this span */}
-                  <span>Id: {store.fullResponse[id - 1].id}</span>
                   <span className="mx-1 fs-5">
                     ({store.fullResponse[id - 1].ratingVotes})
                   </span>
