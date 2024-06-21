@@ -69,6 +69,11 @@ export const ProductView = () => {
   };
 
   const manageSelect = () => {
+    {
+      /*
+      This func manages the select input depending of the productFor.   
+    */
+    }
     if (store.fullResponse[id - 1].productFor == "Footwear") {
       return (
         <>
@@ -211,7 +216,10 @@ export const ProductView = () => {
                       manageButton(store.fullResponse[id - 1].id, isAmount)
                     }
                   >
-                    Add to cart
+                    Add to cart{" "}
+                    {store.cart[store.fullResponse[id - 1].id] > 0 && (
+                      <>({store.cart[store.fullResponse[id - 1].id]})</>
+                    )}
                   </button>
                 </div>
               </div>
