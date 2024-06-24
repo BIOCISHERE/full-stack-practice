@@ -763,6 +763,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ cart: updatedStore });
       },
+      resetIdOnCart: (itemId) => {
+        const store = getStore();
+
+        let updatedStore = store.cart;
+
+        updatedStore[itemId] = 0;
+
+        setStore({ cart: updatedStore });
+      },
     },
   };
 };

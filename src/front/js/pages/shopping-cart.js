@@ -6,6 +6,15 @@ import { Context } from "../store/appContext";
 export const ShoppingCart = () => {
   const { store, actions } = useContext(Context);
 
+  const returnFormated = (value) => {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const retunTotal = (cost, id) => {
+    const total = cost * store.cart[id];
+    return returnFormated(total);
+  };
+
   return (
     <div className="container-fluid">
       <div className="container-fluid text-center my-3">
@@ -40,6 +49,7 @@ export const ShoppingCart = () => {
                 key={index}
               >
                 <div className="col-6">
+                  {/* This is the product div */}
                   <div className="row border border-dark-subtle">
                     <div className="col-3">
                       {/* This is the product img div */}
@@ -52,29 +62,50 @@ export const ShoppingCart = () => {
                       <Link
                         to="#"
                         className="fs-6 text-decoration-underline fauxLetters"
+                        onClick={() => actions.resetIdOnCart(product.id)}
                       >
                         Remove
                       </Link>
                     </div>
                   </div>
                 </div>
-                <div className="col-2 border border-dark-subtle">
-                  <h4 className="mt-5">Product Price</h4>
+                <div className="col-2 border border-dark-subtle text-center">
+                  {/* This is the price div */}
+                  <h4 className="cartCenterVertically">
+                    ${returnFormated(product.cost)}
+                  </h4>
                 </div>
                 <div className="col-2 border border-dark-subtle">
-                  <div className="container-fluid mt-5">
+                  {/* This is the amount div */}
+                  <div className="container-fluid cartCenterVertically">
                     <div className="d-flex mx-auto">
-                      <button>-</button>
+                      <button
+                        type="button"
+                        className="btn btn-dark fauxColor btn-sm me-1"
+                        onClick={() => actions.minus1ToCart(product.id)}
+                      >
+                        -
+                      </button>
                       <input
                         value={store.cart[product.id]}
                         className="w-75 text-center"
+                        readOnly
                       />
-                      <button>+</button>
+                      <button
+                        type="button"
+                        className="btn btn-dark fauxColor btn-sm ms-1"
+                        onClick={() => actions.plus1ToCart(product.id)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>
-                <div className="col-2 border border-dark-subtle">
-                  <h4 className="mt-5">Product Total</h4>
+                <div className="col-2 border border-dark-subtle text-center">
+                  {/* This is the total div */}
+                  <h4 className="cartCenterVertically">
+                    ${retunTotal(product.cost, product.id)}
+                  </h4>
                 </div>
               </div>
             );
