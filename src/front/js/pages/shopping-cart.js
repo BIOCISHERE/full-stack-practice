@@ -15,7 +15,8 @@ export const ShoppingCart = () => {
     return returnFormated(total);
   };
 
-  return (
+  return actions.getTotalCartCost() > 0 ? (
+    //This will display if the shopping cart is not empty
     <div className="container-fluid">
       <div className="container-fluid text-center my-3">
         <h1>Shopping cart</h1>
@@ -23,7 +24,7 @@ export const ShoppingCart = () => {
           Keep shopping
         </Link>
       </div>
-      <div className="container-fluid">
+      <div className="container-fluid mt-3">
         <div className="row">
           <div className="col-6 text-center">
             <h4>Product</h4>
@@ -39,7 +40,7 @@ export const ShoppingCart = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid">
+      <div className="container-fluid mb-3">
         {/* Each product in the shopping cart will map a row in wich all the info will be displayed horizontally */}
         {store.fullResponse.map((product, index) => {
           if (store.cart[product.id] !== 0) {
@@ -89,7 +90,9 @@ export const ShoppingCart = () => {
                       <input
                         value={store.cart[product.id]}
                         className="w-75 text-center"
-                        readOnly
+                        onChange={(e) =>
+                          actions.setCustomToCart(product.id, e.target.value)
+                        }
                       />
                       <button
                         type="button"
@@ -111,6 +114,24 @@ export const ShoppingCart = () => {
             );
           }
         })}
+        <span>SubToal: ${returnFormated(actions.getTotalCartCost())}</span>
+      </div>
+    </div>
+  ) : (
+    //This will display when the shopping cart is empty
+    <div className="container-fluid">
+      <div className="container-fluid text-center my-3">
+        <h1>Shopping cart</h1>
+        <Link to="/" className="fauxLetters">
+          Keep shopping
+        </Link>
+      </div>
+      <div className="container-fluid">
+        <div className="row border border-dark-subtle rounded text-center my-3">
+          <h2 style={{ marginTop: "8rem", marginBottom: "8rem" }}>
+            Your shopping cart is empty
+          </h2>
+        </div>
       </div>
     </div>
   );

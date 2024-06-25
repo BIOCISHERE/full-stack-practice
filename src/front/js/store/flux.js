@@ -772,6 +772,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ cart: updatedStore });
       },
+      setCustomToCart: (itemId, num) => {
+        const store = getStore();
+
+        let updatedStore = store.cart;
+
+        updatedStore[itemId] = Number(num);
+
+        setStore({ cart: updatedStore });
+      },
+      getTotalCartCost: () => {
+        const store = getStore();
+
+        let totalCartCost = 0;
+
+        for (const item in store.cart) {
+          if (store.cart[item] > 0) {
+            let itemInfo = store.fullResponse.find(
+              (product) => product.id === Number(item)
+            );
+            totalCartCost += store.cart[item] * itemInfo.cost;
+          }
+        }
+        return totalCartCost;
+      },
     },
   };
 };
