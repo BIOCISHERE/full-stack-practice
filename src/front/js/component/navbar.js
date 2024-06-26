@@ -127,7 +127,14 @@ export const Navbar = () => {
                 <span className="me-1">
                   <FaShoppingCart />
                 </span>
-                Shopping cart
+                Cart
+                {actions.getTotalProductInCart() > 0 ? (
+                  <span className="badge text-bg-dark ms-1">
+                    {actions.getTotalProductInCart()}
+                  </span>
+                ) : (
+                  ""
+                )}
               </Link>
             </li>
           </ul>

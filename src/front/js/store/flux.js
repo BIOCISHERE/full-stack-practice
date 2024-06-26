@@ -796,6 +796,17 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
         return totalCartCost;
       },
+      getTotalProductInCart: () => {
+        const store = getStore();
+
+        let totalProduct = 0;
+
+        for (const item in store.cart) {
+          totalProduct += store.cart[item];
+        }
+
+        return totalProduct;
+      },
     },
   };
 };
