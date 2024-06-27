@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       cart: {},
+      cartSizes: {},
       message: null,
       token: null,
       user: null,
@@ -806,6 +807,29 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
 
         return totalProduct;
+      },
+      getDefaultCartSize: () => {
+        {
+          /* This func must execute after the products fetch */
+        }
+        const store = getStore();
+
+        let defaultCartSize = {};
+
+        store.fullResponse.map((obj) => {
+          defaultCartSize[obj.id] = 0;
+        });
+
+        setStore({ cartSizes: defaultCartSize });
+      },
+      changeCartSize: (id, size) => {
+        const store = getStore();
+
+        let updatedStore = store.cartSizes;
+
+        updatedStore[id] = size;
+
+        setStore({ cartSizes: updatedStore });
       },
     },
   };
