@@ -723,6 +723,17 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ token: token });
         }
       },
+      returnFormated: (value) => {
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      },
+      returnTotal: (cost, id) => {
+        const store = getStore();
+        const actions = getActions();
+
+        const total = cost * store.cart[id];
+
+        return actions.returnFormated(total);
+      },
       getDefaultCart: () => {
         {
           /* This function must execute after the products fetch */

@@ -6,15 +6,6 @@ import { Context } from "../store/appContext";
 export const ShoppingCart = () => {
   const { store, actions } = useContext(Context);
 
-  const returnFormated = (value) => {
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
-  const retunTotal = (cost, id) => {
-    const total = cost * store.cart[id];
-    return returnFormated(total);
-  };
-
   return actions.getTotalCartCost() > 0 ? (
     //This will display if the shopping cart is not empty
     <div className="container-fluid">
@@ -59,7 +50,10 @@ export const ShoppingCart = () => {
                     <div className="col-9">
                       {/* This is the product name div */}
                       <h5 className="mt-3 text-break">{product.name}</h5>
-                      <span className="fs-6">Size</span> <br />
+                      <span className="fs-6">
+                        Size {store.cartSizes[product.id]}
+                      </span>{" "}
+                      <br />
                       <Link
                         to="#"
                         className="fs-6 text-decoration-underline fauxLetters"
@@ -73,7 +67,7 @@ export const ShoppingCart = () => {
                 <div className="col-2 border border-dark-subtle text-center">
                   {/* This is the price div */}
                   <h4 className="cartCenterVertically">
-                    ${returnFormated(product.cost)}
+                    ${actions.returnFormated(product.cost)}
                   </h4>
                 </div>
                 <div className="col-2 border border-dark-subtle">
@@ -107,14 +101,16 @@ export const ShoppingCart = () => {
                 <div className="col-2 border border-dark-subtle text-center">
                   {/* This is the total div */}
                   <h4 className="cartCenterVertically">
-                    ${retunTotal(product.cost, product.id)}
+                    ${actions.returnTotal(product.cost, product.id)}
                   </h4>
                 </div>
               </div>
             );
           }
         })}
-        <span>SubToal: ${returnFormated(actions.getTotalCartCost())}</span>
+        <span>
+          SubToal: ${actions.returnFormated(actions.getTotalCartCost())}
+        </span>
       </div>
     </div>
   ) : (

@@ -74,7 +74,9 @@ export const MenProducts = () => {
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <div className="d-flex">
-                  <span className="card-text me-auto">${item.cost}</span>
+                  <span className="card-text me-auto">
+                    ${actions.returnFormated(item.cost)}
+                  </span>
                 </div>
                 <span className="card-text fauxLetters">
                   {actions.turnRating(item.rating)}
@@ -101,7 +103,9 @@ export const MenProducts = () => {
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <div className="d-flex">
-                  <span className="card-text me-auto">${item.cost}</span>
+                  <span className="card-text me-auto">
+                    ${actions.returnFormated(item.cost)}
+                  </span>
                 </div>
                 <span className="card-text fauxLetters">
                   {actions.turnRating(item.rating)}

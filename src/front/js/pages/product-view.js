@@ -134,10 +134,16 @@ export const ProductView = () => {
     }
     if (store.fullResponse[id - 1].productFor == "Footwear") {
       //console.log(isFootwearSize, isAmount);
-      return actions.plusCustomToCart(itemId, amnt);
+      return [
+        actions.plusCustomToCart(itemId, amnt),
+        actions.changeCartSize(itemId, isFootwearSize),
+      ];
     } else {
       //console.log(isSize, isAmount);
-      return actions.plusCustomToCart(itemId, amnt);
+      return [
+        actions.plusCustomToCart(itemId, amnt),
+        actions.changeCartSize(itemId, isSize),
+      ];
     }
   };
 
@@ -183,7 +189,7 @@ export const ProductView = () => {
                 </div>
                 <div className="d-flex mt-2">
                   <span className="fs-1">
-                    $ {store.fullResponse[id - 1].cost}
+                    ${actions.returnFormated(store.fullResponse[id - 1].cost)}
                   </span>
                 </div>
                 <div className="container-fluid mt-2">{manageSelect()}</div>
