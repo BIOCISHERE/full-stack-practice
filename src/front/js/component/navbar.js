@@ -88,13 +88,6 @@ export const Navbar = () => {
                         Sign-up
                       </Link>
                     </li>
-                    <li>
-                      <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={() => console.log(store.cartSizes)}
-                      ></button>
-                    </li>
                   </>
                 ) : (
                   <>

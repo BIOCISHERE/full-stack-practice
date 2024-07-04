@@ -21,7 +21,7 @@ export const ShoppingCart = () => {
               //This will display when the shopping cart is not empty
               <div
                 className="container-fluid border border-dark-subtle rounded"
-                style={{ marginTop: "1rem" }}
+                style={{ marginTop: "1rem", marginBottom: "1rem" }}
               >
                 <div className="container-fluid mt-3">
                   <div className="row">
@@ -101,7 +101,8 @@ export const ShoppingCart = () => {
                                 </button>
                                 <input
                                   value={store.cart[product.id]}
-                                  className="w-75 text-center"
+                                  className="text-center"
+                                  style={{ width: "2rem" }}
                                   onChange={(e) =>
                                     actions.setCustomToCart(
                                       product.id,
@@ -131,10 +132,6 @@ export const ShoppingCart = () => {
                       );
                     }
                   })}
-                  <span>
-                    SubToal: $
-                    {actions.returnFormated(actions.getTotalCartCost())}
-                  </span>
                 </div>
               </div>
             ) : (
@@ -142,7 +139,7 @@ export const ShoppingCart = () => {
               <div className="container-fluid">
                 <div
                   className="row border border-dark-subtle rounded text-center"
-                  style={{ marginTop: "1rem" }}
+                  style={{ marginTop: "1rem", marginBottom: "1rem" }}
                 >
                   <h2 style={{ marginTop: "8rem", marginBottom: "8rem" }}>
                     Your shopping cart is empty
@@ -151,23 +148,35 @@ export const ShoppingCart = () => {
               </div>
             )}
           </div>
-          <div className="col-4" style={{ marginTop: "1rem" }}>
+          <div
+            className="col-4"
+            style={{ marginTop: "1rem", marginBottom: "5rem" }}
+          >
             {/* This is the total, shipping and subtotal div */}
             <div className="container-fluid border border-dark-subtle rounded">
               <h3 className="mb-3">Purchase summary</h3>
-              <div className="d-flex">
-                <span className="me-auto fs-5">Product</span>
-                <span className="fs-5">Product price</span>
+              <div className="d-flex mb-1">
+                <span className="me-auto fs-5">
+                  Product
+                  {actions.getTotalProductInCart() > 0 ? (
+                    <span>({actions.getTotalProductInCart()})</span>
+                  ) : (
+                    ""
+                  )}
+                </span>
+                <span className="fs-5 fw-bold">
+                  ${actions.returnFormated(actions.getTotalCartCost())}
+                </span>
               </div>
-              <div className="d-flex">
+              <div className="d-flex my-1">
                 <span className="me-auto fs-5">Shipping</span>
-                <span className="fs-5">Shipping price</span>
+                <span className="fs-5 fw-bold">Shipping price</span>
               </div>
-              <div className="d-flex">
+              <div className="d-flex mt-1 mb-3">
                 <span className="me-auto fs-5">Total</span>
-                <span className="fs-5">Total price</span>
+                <span className="fs-5 fw-bold">Total price</span>
               </div>
-              <div className="container-fluid">
+              <div className="container-fluid my-1 mb-2">
                 <button type="button" className="btn btn-primary w-100">
                   Buy
                 </button>
