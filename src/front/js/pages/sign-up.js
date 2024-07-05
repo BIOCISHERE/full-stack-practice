@@ -196,7 +196,7 @@ export const SignUp = () => {
             <div className="container-fluid text-center mx-auto">
               <button
                 type="button"
-                className="btn btn-primary mb-2"
+                className="btn btn-dark fauxColor mb-2"
                 onClick={() => {
                   setIsAlert(false);
                   setIsSuccess(false);

@@ -1,10 +1,62 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const ShoppingCart = () => {
   const { store, actions } = useContext(Context);
+
+  const [isShowShipping, setIsShowShipping] = useState(false);
+  const [isShipping, setIsShipping] = useState(1);
+  const [isShippingValue, setIsShippingValue] = useState();
+
+  const returnShipping = () => {
+    if (isShipping == 1) {
+      return 10;
+    } else if (isShipping == 2) {
+      return 15;
+    } else if (isShipping == 3) {
+      return 20;
+    } else if (isShipping == 4) {
+      return 25;
+    } else if (isShipping == 5) {
+      return 15;
+    } else if (isShipping == 6) {
+      return 20;
+    } else {
+      return 15;
+    }
+  };
+
+  const returnShippingRegion = () => {
+    if (isShipping == 1) {
+      return "North america";
+    } else if (isShipping == 2) {
+      return "South america";
+    } else if (isShipping == 3) {
+      return "Antartica";
+    } else if (isShipping == 4) {
+      return "Africa";
+    } else if (isShipping == 5) {
+      return "Europe";
+    } else if (isShipping == 6) {
+      return "Asia";
+    } else {
+      return "Australia";
+    }
+  };
+
+  const returnShoppingCartTotal = () => {
+    if (actions.getTotalProductInCart() > 0) {
+      return actions.getTotalCartCost() + returnShipping();
+    } else {
+      return 0;
+    }
+  };
+
+  useEffect(() => {
+    setIsShippingValue(isShipping);
+  });
 
   return (
     <div className="container-fluid">
@@ -169,15 +221,62 @@ export const ShoppingCart = () => {
                 </span>
               </div>
               <div className="d-flex my-1">
-                <span className="me-auto fs-5">Shipping</span>
-                <span className="fs-5 fw-bold">Shipping price</span>
+                <span className="me-auto fs-5">
+                  Shipping
+                  <span className="fs-6">({returnShippingRegion()})</span>
+                </span>
+                <span className="fs-5 fw-bold">${returnShipping()}</span>
+              </div>
+              <div className="form-check my-1">
+                <input
+                  className="form-check-input border border-dark"
+                  type="checkbox"
+                  id="changeShippingInput"
+                  onChange={() => setIsShowShipping(!isShowShipping)}
+                />
+                <label
+                  className="form-check-label fauxLetters"
+                  htmlFor="changeShippingInput"
+                >
+                  Change shipping region
+                </label>
+              </div>
+              <div className={isShowShipping ? "container-fluid" : "d-none"}>
+                <label htmlFor="selectShippingRegion" className="me-1">
+                  Select region:
+                </label>
+                <select
+                  id="selectShippingRegion"
+                  onChange={(e) => (
+                    setIsShipping(e.target.value),
+                    actions.changeShippingRegion(e.target.value),
+                    setIsShippingValue(returnShipping())
+                  )}
+                >
+                  <option value={1}>North america</option>
+                  <option value={2}>South america</option>
+                  <option value={3}>Antartica</option>
+                  <option value={4}>Africa</option>
+                  <option value={5}>Europe</option>
+                  <option value={6}>Asia</option>
+                  <option value={7}>Australia</option>
+                </select>
               </div>
               <div className="d-flex mt-1 mb-3">
                 <span className="me-auto fs-5">Total</span>
-                <span className="fs-5 fw-bold">Total price</span>
+                <span className="fs-5 fw-bold">
+                  ${returnShoppingCartTotal()}
+                </span>
               </div>
               <div className="container-fluid my-1 mb-2">
-                <button type="button" className="btn btn-primary w-100">
+                <button
+                  type="button"
+                  className="btn btn-dark fauxColor w-100"
+                  onClick={() => (
+                    console.log("isShipping", isShipping),
+                    console.log("flux", store.shipping)
+                  )}
+                >
                   Buy
                 </button>
               </div>
