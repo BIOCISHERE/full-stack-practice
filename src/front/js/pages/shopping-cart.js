@@ -8,7 +8,6 @@ export const ShoppingCart = () => {
 
   const [isShowShipping, setIsShowShipping] = useState(false);
   const [isShipping, setIsShipping] = useState(1);
-  const [isShippingValue, setIsShippingValue] = useState();
 
   const returnShipping = () => {
     if (isShipping == 1) {
@@ -53,10 +52,6 @@ export const ShoppingCart = () => {
       return 0;
     }
   };
-
-  useEffect(() => {
-    setIsShippingValue(isShipping);
-  });
 
   return (
     <div className="container-fluid">
@@ -249,8 +244,7 @@ export const ShoppingCart = () => {
                   id="selectShippingRegion"
                   onChange={(e) => (
                     setIsShipping(e.target.value),
-                    actions.changeShippingRegion(e.target.value),
-                    setIsShippingValue(returnShipping())
+                    actions.changeShippingRegion(e.target.value)
                   )}
                 >
                   <option value={1}>North america</option>
