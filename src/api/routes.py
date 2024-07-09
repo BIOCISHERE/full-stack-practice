@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Product
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, JWTManager
@@ -24,7 +24,7 @@ def handle_hello():
 
 
 
-
+#<------ Start of login/singup routes ------>
 @api.route('/sign-up', methods=['POST'])
 def handle_sign_up():
     data = request.get_json()
@@ -63,3 +63,31 @@ def handle_log_in():
     
     access_token = create_access_token(identity=email)
     return jsonify({"message": "Log-in successfull", "token": access_token, "user": email}), 201
+#<------ End of login/singup routes ------>
+
+#<------ Start of product routes ------>
+@api.route('/product', methods=['POST'])
+def new_product():
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}, 400)
+    
+    name = data.get('name')
+    cost = data.get('cost')
+    rating = data.get('rating')
+    ratingVotes = data.get('ratingVotes')
+    category = data.get('category')
+    amount = data.get('amount')
+    productFor = data.get('productFor')
+    if not name or not cost or not productFor:
+        return jsonify({"error": "Not enough data to make a new product"}), 400
+    
+    if Product.query.filter_by(name=name).first():
+        return jsonify({"error": "Product already created"}), 400
+    
+    product = Product(name=name, cost=cost, rating=rating, ratingVotes=ratingVotes, category=category, amount=amount, productFor=productFor)
+    db.session.add(product)
+    db.session.commit()
+
+    return jsonify({"message": "Product created successfully", "name": name}), 201
+#<------ End of product routes ------>
