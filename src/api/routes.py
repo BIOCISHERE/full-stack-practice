@@ -66,6 +66,19 @@ def handle_log_in():
 #<------ End of login/singup routes ------>
 
 #<------ Start of product routes ------>
+@api.route('/products', methods=['GET'])
+def get_products():
+    get_products = Product.query.all()
+    return jsonify([product.serialize() for product in get_products]), 200
+
+@api.route('/products/<int:id>', methods=['GET'])
+def single_product(id):
+    product = Product.query.get(id)
+    if product:
+        return jsonify(product.serialize()), 200
+    else:
+        return jsonify({"error": "Product not found", "id": id}), 404
+
 @api.route('/product', methods=['POST'])
 def new_product():
     data = request.get_json()
