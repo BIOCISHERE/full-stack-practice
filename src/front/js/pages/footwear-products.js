@@ -95,7 +95,7 @@ export const FootwearProducts = () => {
             <h6>Type of footwear</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="urbanCheck"
@@ -107,7 +107,7 @@ export const FootwearProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="sportCheck"
@@ -119,7 +119,7 @@ export const FootwearProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="shoesCheck"
@@ -131,7 +131,7 @@ export const FootwearProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="sandalsCheck"

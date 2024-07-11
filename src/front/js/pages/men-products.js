@@ -128,7 +128,7 @@ export const MenProducts = () => {
             <h6>Type of garmnet</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="tshirtCheck"
@@ -140,7 +140,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="sweatersCheck"
@@ -152,7 +152,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="hoodieCheck"
@@ -164,7 +164,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="pantsCheck"
@@ -176,7 +176,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="jeansCheck"
@@ -191,7 +191,7 @@ export const MenProducts = () => {
             <h6>Accessories</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="walletsCheck"
@@ -203,7 +203,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="beltsCheck"
@@ -215,7 +215,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="scarfsCheck"
@@ -230,7 +230,7 @@ export const MenProducts = () => {
             <h6>Undergarments</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="socksCheck"
@@ -242,7 +242,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="underpantsCheck"
@@ -254,7 +254,7 @@ export const MenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="boxersCheck"

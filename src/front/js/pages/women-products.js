@@ -137,7 +137,7 @@ export const WomenProducts = () => {
             <h6>Type of garment</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="t-shirtsCheck"
@@ -149,7 +149,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="sweatersCheck"
@@ -161,7 +161,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="pantsCheck"
@@ -173,7 +173,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="dressesCheck"
@@ -185,7 +185,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="jeansCheck"
@@ -200,7 +200,7 @@ export const WomenProducts = () => {
             <h6>Accessories</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="pursesCheck"
@@ -212,7 +212,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="walletsCheck"
@@ -224,7 +224,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="beltsCheck"
@@ -236,7 +236,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="scarfsCheck"
@@ -251,7 +251,7 @@ export const WomenProducts = () => {
             <h6>Undergarments</h6>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="pantiesCheck"
@@ -263,7 +263,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="brasCheck"
@@ -275,7 +275,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="pantysCheck"
@@ -287,7 +287,7 @@ export const WomenProducts = () => {
             </div>
             <div className="form-check">
               <input
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 type="checkbox"
                 value=""
                 id="socksCheck"
