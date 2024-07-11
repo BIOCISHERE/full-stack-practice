@@ -171,7 +171,7 @@ export const LogIn = () => {
             <div className="mb-3 form-check">
               <input
                 type="checkbox"
-                className="form-check-input"
+                className="form-check-input border border-dark"
                 id="checkInput"
                 onClick={() => setIsShow(!isShow)}
               />
