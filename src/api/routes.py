@@ -24,7 +24,15 @@ def handle_hello():
 
 
 
-#<------ Start of login/singup routes ------>
+#<------ Start of login/singup/user routes ------>
+@api.route('/user/<int:id>', methods=['GET'])
+def search_user(id):
+    user = User.query.get(id)
+    if user:
+        return jsonify(user.serialize()), 200
+    else:
+        return jsonify({"error": "Product not found", "id": id}),404
+
 @api.route('/sign-up', methods=['POST'])
 def handle_sign_up():
     data = request.get_json()
