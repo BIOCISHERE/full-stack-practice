@@ -71,6 +71,17 @@ def handle_log_in():
     
     access_token = create_access_token(identity=email)
     return jsonify({"message": "Log-in successfull", "token": access_token, "user": email}), 201
+
+@api.route('/user/<int:id>', methods=['DELETE'])
+def delete_user(id):
+    user = User.query.get(id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
+    db.session.delete(user)
+    db.session.commit()
+
+    return jsonify({"message": "User deleted successfully"}), 200
 #<------ End of login/singup routes ------>
 
 #<------ Start of product routes ------>
