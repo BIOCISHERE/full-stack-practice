@@ -72,7 +72,7 @@ def handle_log_in():
     access_token = create_access_token(identity=email)
     return jsonify({"message": "Log-in successfull", "token": access_token, "user": email}), 201
 
-@api.route('/user/<int:id>', methods=['DELETE'])
+@api.route('/user/erase/<int:id>', methods=['DELETE'])
 def delete_user(id):
     user = User.query.get(id)
     if not user:
@@ -122,4 +122,15 @@ def new_product():
     db.session.commit()
 
     return jsonify({"message": "Product created successfully", "name": name}), 201
+
+@api.route('/product/erase/<int:id>', methods=['DELETE'])
+def delete_product(id):
+    product = Product.query.get(id)
+    if not product:
+        return jsonify({"error": "Product not found"}), 404
+    
+    db.session.delete(product)
+    db.session.commit()
+
+    return jsonify({"message": "Product deleted successfully"}), 200
 #<------ End of product routes ------>
