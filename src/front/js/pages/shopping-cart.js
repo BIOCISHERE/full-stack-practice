@@ -9,6 +9,8 @@ export const ShoppingCart = () => {
   const [isShowShipping, setIsShowShipping] = useState(false);
   const [isShipping, setIsShipping] = useState(1);
 
+  const [isSelected, setIsSelected] = useState();
+
   const returnShipping = () => {
     if (isShipping == 1) {
       return 10;
@@ -115,6 +117,7 @@ export const ShoppingCart = () => {
                                   Size {store.cartSizes[product.id]}
                                 </span>{" "}
                                 <br />
+                                {/*
                                 <Link
                                   to="#"
                                   className="fs-6 text-decoration-underline fauxLetters"
@@ -124,6 +127,62 @@ export const ShoppingCart = () => {
                                 >
                                   Remove
                                 </Link>
+                                 */}
+                                <a
+                                  className="fs-6 fauxLetters"
+                                  data-bs-toggle="offcanvas"
+                                  href="#offcanvasWarning"
+                                  aria-controls="offcanvasWarning"
+                                  onClick={() => setIsSelected(product.id)}
+                                >
+                                  Remove product
+                                </a>
+                                <div
+                                  className="offcanvas offcanvas-start"
+                                  tabIndex="-1"
+                                  id="offcanvasWarning"
+                                  aria-labelledby="offcanvasWarningLabel"
+                                >
+                                  <div className="offcanvas-header">
+                                    <h5
+                                      className="offcanvas-title"
+                                      id="offcanvasExampleLabel"
+                                    >
+                                      Warning
+                                    </h5>
+                                    <button
+                                      type="button"
+                                      className="btn-close"
+                                      data-bs-dismiss="offcanvas"
+                                      aria-label="Close"
+                                    ></button>
+                                  </div>
+                                  <div className="offcanvas-body">
+                                    <div>
+                                      Do you want to remove this product from
+                                      your shopping cart?
+                                    </div>
+                                    <div className="d-flex mt-2">
+                                      <button
+                                        type="button"
+                                        className="btn btn-danger me-auto"
+                                        data-bs-dismiss="offcanvas"
+                                        aria-label="Close"
+                                      >
+                                        Cancel
+                                      </button>
+                                      <button
+                                        type="button"
+                                        className="btn btn-success"
+                                        onClick={() =>
+                                          actions.resetIdOnCart(product.id)
+                                        }
+                                      >
+                                        Yes
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
