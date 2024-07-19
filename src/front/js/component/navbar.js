@@ -88,6 +88,16 @@ export const Navbar = () => {
                         Sign-up
                       </Link>
                     </li>
+                    <li>
+                      <Link className="dropdown-item" to="/shipment">
+                        Shipment
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/payment">
+                        Payment
+                      </Link>
+                    </li>
                   </>
                 ) : (
                   <>
@@ -101,6 +111,16 @@ export const Navbar = () => {
                           Log-Out
                         </button>
                       </div>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/shipment">
+                        Shipment
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/payment">
+                        Payment
+                      </Link>
                     </li>
                   </>
                 )}
