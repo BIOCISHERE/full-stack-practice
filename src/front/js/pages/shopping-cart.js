@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { IoIosWarning } from "react-icons/io";
 
 export const ShoppingCart = () => {
   const { store, actions } = useContext(Context);
@@ -148,7 +149,19 @@ export const ShoppingCart = () => {
                                       className="offcanvas-title"
                                       id="offcanvasExampleLabel"
                                     >
+                                      <span
+                                        className="fs-4"
+                                        style={{ color: "orange" }}
+                                      >
+                                        <IoIosWarning />
+                                      </span>
                                       Warning
+                                      <span
+                                        className="fs-4"
+                                        style={{ color: "orange" }}
+                                      >
+                                        <IoIosWarning />
+                                      </span>
                                     </h5>
                                     <button
                                       type="button"
