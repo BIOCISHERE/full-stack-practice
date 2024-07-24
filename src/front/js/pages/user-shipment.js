@@ -39,10 +39,28 @@ export const UserShipment = () => {
                     />
                   </div>
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="userAdressInput" className="form-label">
+                    Adress
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border border-dark-subtle"
+                    id="userAdressInput"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="userApartmentInput" className="form-label">
+                    Apartment Info
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border border-dark-subtle"
+                    id="userApartmentInput"
+                  />
+                </div>
               </form>
             </div>
-            <h1>adress</h1>
-            <h1>appartment (optional)</h1>
             <h1>city</h1>
             <h1>state/region</h1>
             <h1>postal code (optional)</h1>
