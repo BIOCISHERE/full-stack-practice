@@ -51,7 +51,7 @@ export const UserShipment = () => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="userApartmentInput" className="form-label">
-                    Apartment Info
+                    Apartment Info (optional)
                   </label>
                   <input
                     type="text"
@@ -59,9 +59,18 @@ export const UserShipment = () => {
                     id="userApartmentInput"
                   />
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="userCityInput" className="form-label">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border border-dark-subtle"
+                    id="userCityInput"
+                  />
+                </div>
               </form>
             </div>
-            <h1>city</h1>
             <h1>state/region</h1>
             <h1>postal code (optional)</h1>
             <h1>additional message</h1>
