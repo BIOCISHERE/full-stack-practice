@@ -89,9 +89,19 @@ export const UserShipment = () => {
                     id="userPostalInput"
                   />
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="userMessageInput" className="form-label">
+                    Additional Message (optional)
+                  </label>
+                  <textarea
+                    className="form-control border border-dark-subtle"
+                    id="userMessageInput"
+                    rows="3"
+                  ></textarea>
+                </div>
               </form>
             </div>
-            <h1>additional message</h1>
+            <h1>make a country input</h1>
           </div>
         </div>
       </div>
