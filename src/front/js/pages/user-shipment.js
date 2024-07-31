@@ -60,13 +60,13 @@ export const UserShipment = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="userCityInput" className="form-label">
-                    City
+                  <label htmlFor="userCountryInput" className="form-label">
+                    Country
                   </label>
                   <input
                     type="text"
                     className="form-control border border-dark-subtle"
-                    id="userCityInput"
+                    id="userCountryInput"
                   />
                 </div>
                 <div className="mb-3">
@@ -77,6 +77,16 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userRegionInput"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="userCityInput" className="form-label">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border border-dark-subtle"
+                    id="userCityInput"
                   />
                 </div>
                 <div className="mb-3">
@@ -101,7 +111,6 @@ export const UserShipment = () => {
                 </div>
               </form>
             </div>
-            <h1>make a country input</h1>
           </div>
         </div>
       </div>
