@@ -109,6 +109,15 @@ export const UserShipment = () => {
                     rows="3"
                   ></textarea>
                 </div>
+                <div className="container-fluid mb-3 text-center">
+                  <button
+                    type="button"
+                    className="btn btn-dark fauxColor"
+                    onClick={() => console.log("Working")}
+                  >
+                    Save Shipping Info
+                  </button>
+                </div>
               </form>
             </div>
           </div>
