@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const UserShipment = () => {
+  const [isFirstName, setIsFirstName] = useState("");
   return (
     <div className="container-fluid">
       <div className="container-fluid text-center my-2">
@@ -25,6 +26,8 @@ export const UserShipment = () => {
                       className="form-control border border-dark-subtle"
                       id="firtsNameInput"
                       style={{ width: "22rem" }}
+                      value={isFirstName}
+                      onChange={(e) => setIsFirstName(e.target.value)}
                     />
                   </div>
                   <div className="my-3">
