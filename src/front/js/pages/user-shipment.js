@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export const UserShipment = () => {
   const [isFirstName, setIsFirstName] = useState("");
+  const [isLastName, setIsLastName] = useState("");
+
   return (
     <div className="container-fluid">
       <div className="container-fluid text-center my-2">
@@ -39,6 +41,8 @@ export const UserShipment = () => {
                       className="form-control border border-dark-subtle"
                       id="lastNameInput"
                       style={{ width: "22rem" }}
+                      value={isLastName}
+                      onChange={(e) => setIsLastName(e.target.value)}
                     />
                   </div>
                 </div>
