@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const UserShipment = () => {
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
+  const [isAdress, setIsAdress] = useState("");
 
   return (
     <div className="container-fluid">
@@ -54,6 +55,8 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userAdressInput"
+                    value={isAdress}
+                    onChange={(e) => setIsAdress(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
