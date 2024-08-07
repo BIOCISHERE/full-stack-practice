@@ -5,6 +5,7 @@ export const UserShipment = () => {
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
   const [isAdress, setIsAdress] = useState("");
+  const [isApartment, setIsApartment] = useState("");
 
   return (
     <div className="container-fluid">
@@ -67,6 +68,8 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userApartmentInput"
+                    value={isApartment}
+                    onChange={(e) => setIsApartment(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
