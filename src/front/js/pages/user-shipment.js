@@ -6,6 +6,11 @@ export const UserShipment = () => {
   const [isLastName, setIsLastName] = useState("");
   const [isAdress, setIsAdress] = useState("");
   const [isApartment, setIsApartment] = useState("");
+  const [isCountry, setIsCountry] = useState("");
+  const [isState, setIsState] = useState("");
+  const [isCity, setIsCity] = useState("");
+  const [isPostal, setIsPostal] = useState("");
+  const [isMessage, setIsMessage] = useState("");
 
   return (
     <div className="container-fluid">
@@ -80,6 +85,8 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userCountryInput"
+                    value={isCountry}
+                    onChange={(e) => setIsCountry(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -90,6 +97,8 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userRegionInput"
+                    value={isState}
+                    onChange={(e) => setIsState(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -100,6 +109,8 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userCityInput"
+                    value={isCity}
+                    onChange={(e) => setIsCity(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -110,6 +121,8 @@ export const UserShipment = () => {
                     type="text"
                     className="form-control border border-dark-subtle"
                     id="userPostalInput"
+                    value={isPostal}
+                    onChange={(e) => setIsPostal(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
@@ -120,6 +133,8 @@ export const UserShipment = () => {
                     className="form-control border border-dark-subtle"
                     id="userMessageInput"
                     rows="3"
+                    value={isMessage}
+                    onChange={(e) => setIsMessage(e.target.value)}
                   ></textarea>
                 </div>
                 <div className="container-fluid mb-3 text-center">
