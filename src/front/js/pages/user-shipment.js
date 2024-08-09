@@ -12,6 +12,20 @@ export const UserShipment = () => {
   const [isPostal, setIsPostal] = useState("");
   const [isMessage, setIsMessage] = useState("");
 
+  const updateShipping = () => {
+    return (
+      console.log(isFirstName),
+      console.log(isLastName),
+      console.log(isAdress),
+      console.log(isApartment),
+      console.log(isCountry),
+      console.log(isState),
+      console.log(isCity),
+      console.log(isPostal),
+      console.log(isMessage)
+    );
+  };
+
   return (
     <div className="container-fluid">
       <div className="container-fluid text-center my-2">
@@ -141,7 +155,7 @@ export const UserShipment = () => {
                   <button
                     type="button"
                     className="btn btn-dark fauxColor"
-                    onClick={() => console.log("Working")}
+                    onClick={() => updateShipping()}
                   >
                     Save Shipping Info
                   </button>
