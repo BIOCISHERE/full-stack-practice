@@ -47,8 +47,9 @@ def handle_sign_up():
     if User.query.filter_by(email=email).first():
         return jsonify({"error": "Email already registered"}),400
     
+    empty = "empty"
     access_token = create_access_token(identity=email)
-    user = User(email=email, password=password, is_active=True)
+    user = User(email=email, password=password, first_name=empty, last_name=empty, adress=empty, apartment=empty, country=empty, state=empty, city=empty, postal=0, is_active=True)
     db.session.add(user)
     db.session.commit()
 
