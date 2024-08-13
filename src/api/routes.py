@@ -73,6 +73,29 @@ def handle_log_in():
     access_token = create_access_token(identity=email)
     return jsonify({"message": "Log-in successfull", "token": access_token, "user": email}), 201
 
+@api.route('/shipping/<int:id>', methods=['PUT'])
+def update_shipping(id):
+    user = User.query.get(id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    user.first_name = data.get("first_name", user.first_name)
+    user.last_name = data.get("last_name", user.last_name)
+    user.adress = data.get("adress", user.adress)
+    user.apartment = data.get("apartment", user.apartment)
+    user.country = data.get("country", user.country)
+    user.state = data.get("state", user.state)
+    user.city = data.get("city", user.city)
+    user.postal = data.get("postal", user.postal)
+
+    db.session.commit()
+
+    return jsonify(user.serialize()), 200
+
 @api.route('/user/erase/<int:id>', methods=['DELETE'])
 def delete_user(id):
     user = User.query.get(id)
