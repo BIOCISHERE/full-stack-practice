@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const UserShipment = () => {
+  const { store, actions } = useContext(Context);
+
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
   const [isAdress, setIsAdress] = useState("");
@@ -12,18 +15,27 @@ export const UserShipment = () => {
   const [isPostal, setIsPostal] = useState("");
   const [isMessage, setIsMessage] = useState("");
 
-  const updateShipping = () => {
-    return (
-      console.log(isFirstName),
-      console.log(isLastName),
-      console.log(isAdress),
-      console.log(isApartment),
-      console.log(isCountry),
-      console.log(isState),
-      console.log(isCity),
-      console.log(isPostal),
-      console.log(isMessage)
-    );
+  const shippingOptions = {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      first_name: isFirstName,
+      last_name: isLastName,
+      adress: isAdress,
+      apartment: isApartment,
+      country: isCountry,
+      state: isState,
+      city: isCity,
+      postal: isPostal,
+    }),
+  };
+
+  const updateShipping = async () => {
+    try {
+      const request = await fetch(
+        process.env.BACKEND_URL + `/shipping/${"replace-with-id"}`
+      );
+    } catch (error) {}
   };
 
   return (
