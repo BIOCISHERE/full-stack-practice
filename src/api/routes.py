@@ -33,6 +33,23 @@ def search_user(id):
     else:
         return jsonify({"error": "Product not found", "id": id}),404
 
+@api.route('/user-id', methods=['POST'])
+def return_id():
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    email = data.get("email")
+    if not email:
+        return jsonify({"error": "email is required"}), 400
+
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"error": "Invalid email"}), 401
+
+    id = user.id
+    return jsonify({"message": "ID found", "id": id}), 201        
+
 @api.route('/sign-up', methods=['POST'])
 def handle_sign_up():
     data = request.get_json()
