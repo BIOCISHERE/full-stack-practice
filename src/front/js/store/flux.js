@@ -859,6 +859,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ shipping: updateShipping });
       },
+      getID: async (user) => {
+        try {
+          const store = getStore();
+
+          const requestOptions = {
+            method: "POST",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user,
+            }),
+          };
+
+          const requestID = await fetch(
+            process.env.BACKEND_URL + "/api/user-id",
+            requestOptions
+          );
+
+          if (requestID.status == 400 || requestID.status == 401) {
+            const responseJson = await requestID.json();
+            const resultJson = new Array(responseJson);
+            const resultError = resultJson[0].error;
+
+            console.log(resultError);
+            return false;
+          }
+
+          const response = await requestID.json();
+        } catch (error) {
+          console.error(error);
+          return false;
+        }
+      },
     },
   };
 };
