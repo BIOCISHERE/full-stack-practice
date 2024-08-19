@@ -889,6 +889,13 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
 
           const response = await requestID.json();
+          const temporal = new Array(response);
+          const temporalMsg = await temporal[0].message;
+          console.log("message", temporalMsg);
+
+          const resultID = await temporal[0].id;
+          console.log("id", resultID);
+          return true;
         } catch (error) {
           console.error(error);
           return false;
