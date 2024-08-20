@@ -15,25 +15,67 @@ export const UserShipment = () => {
   const [isPostal, setIsPostal] = useState("");
   const [isMessage, setIsMessage] = useState("");
 
-  const shippingOptions = {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      first_name: isFirstName,
-      last_name: isLastName,
-      adress: isAdress,
-      apartment: isApartment,
-      country: isCountry,
-      state: isState,
-      city: isCity,
-      postal: isPostal,
-    }),
+  const getID = async () => {
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: store.user,
+        }),
+      };
+
+      const requestID = await fetch(
+        process.env.BACKEND_URL + "/api/user-id",
+        requestOptions
+      );
+
+      if (requestID.status == 400 || requestID.status == 401) {
+        const responseJson = await requestID.json();
+        const resultJson = new Array(responseJson);
+        const resultError = resultJson[0].error;
+
+        console.log(resultError);
+        return false;
+      }
+
+      const response = await requestID.json();
+      const temporal = new Array(response);
+      const temporalMsg = await temporal[0].message;
+      console.log("message", temporalMsg);
+
+      const resultID = await temporal[0].id;
+      console.log("id", resultID);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   };
 
   const updateShipping = async () => {
     try {
+      const shippingOptions = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: isFirstName,
+          last_name: isLastName,
+          adress: isAdress,
+          apartment: isApartment,
+          country: isCountry,
+          state: isState,
+          city: isCity,
+          postal: isPostal,
+        }),
+      };
+
       const request = await fetch(
-        process.env.BACKEND_URL + `/shipping/${"replace-with-id"}`
+        process.env.BACKEND_URL + `/shipping/${"replace-with-id"}`,
+        shippingOptions
       );
     } catch (error) {}
   };
