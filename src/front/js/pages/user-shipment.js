@@ -8,12 +8,16 @@ export const UserShipment = () => {
   const [isFirstName, setIsFirstName] = useState("");
   const [isLastName, setIsLastName] = useState("");
   const [isAdress, setIsAdress] = useState("");
-  const [isApartment, setIsApartment] = useState("");
+  const [isApartment, setIsApartment] = useState(""); //optional
   const [isCountry, setIsCountry] = useState("");
   const [isState, setIsState] = useState("");
   const [isCity, setIsCity] = useState("");
-  const [isPostal, setIsPostal] = useState("");
-  const [isMessage, setIsMessage] = useState("");
+  const [isPostal, setIsPostal] = useState(""); //optional
+  const [isMessage, setIsMessage] = useState(""); //optional
+
+  const [isAlert, setIsAlert] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isResponse, setIsResponse] = useState("");
 
   const getID = async () => {
     try {
@@ -53,6 +57,37 @@ export const UserShipment = () => {
     } catch (error) {
       console.log(error);
       return false;
+    }
+  };
+
+  const shippingAlertManager = () => {
+    if (isFirstName == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your first name");
+      return false;
+    } else if (isLastName == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your last name");
+      return false;
+    } else if (isAdress == "") {
+      setIsAlert(true);
+      setIsResponse("Please type tour adress");
+      return false;
+    } else if (isCountry == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your country");
+      return false;
+    } else if (isState == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your state");
+      return false;
+    } else if (isCity == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your city");
+      return false;
+    } else {
+      console.log("All good");
+      return true;
     }
   };
 
