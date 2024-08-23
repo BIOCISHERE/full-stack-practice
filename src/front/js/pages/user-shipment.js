@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -18,47 +18,6 @@ export const UserShipment = () => {
   const [isAlert, setIsAlert] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isResponse, setIsResponse] = useState("");
-
-  const getID = async () => {
-    try {
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: store.user,
-        }),
-      };
-
-      const requestID = await fetch(
-        process.env.BACKEND_URL + "/api/user-id",
-        requestOptions
-      );
-
-      if (requestID.status == 400 || requestID.status == 401) {
-        const responseJson = await requestID.json();
-        const resultJson = new Array(responseJson);
-        const resultError = resultJson[0].error;
-
-        console.log(resultError);
-        return false;
-      }
-
-      const response = await requestID.json();
-      const temporal = new Array(response);
-      const temporalMsg = await temporal[0].message;
-      console.log("message", temporalMsg);
-
-      const resultID = await temporal[0].id;
-      console.log("id", resultID);
-      return true;
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
-  };
 
   const shippingAlertManager = () => {
     if (isFirstName == "") {
@@ -114,6 +73,18 @@ export const UserShipment = () => {
       );
     } catch (error) {}
   };
+
+  const returnMessage = () => {
+    if (isAlert) {
+    }
+  };
+
+  useEffect(() => {
+    if (store.user != null) {
+      actions.getID();
+      return console.log("id storaged");
+    }
+  }, []);
 
   return (
     <div className="container-fluid">

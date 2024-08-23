@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       cart: {},
       cartSizes: {},
       message: null,
+      id: null,
       token: null,
       user: null,
       shipping: 1,
@@ -719,9 +720,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       saveToken: () => {
         const token = sessionStorage.getItem("token");
+        const user = sessionStorage.getItem("user");
+        const id = sessionStorage.getItem("id");
 
         if (token && token != "" && token != undefined && token != null) {
-          setStore({ token: token });
+          setStore({ token: token, user: user, id: id });
         }
       },
       returnFormated: (value) => {
@@ -859,46 +862,50 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ shipping: updateShipping });
       },
-      getID: async (user) => {
-        try {
-          const store = getStore();
+      getID: async () => {
+        const store = getStore();
 
-          const requestOptions = {
-            method: "POST",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: user,
-            }),
-          };
+        const requestOptions = {
+          method: "POST",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: store.user,
+          }),
+        };
 
-          const requestID = await fetch(
-            process.env.BACKEND_URL + "/api/user-id",
-            requestOptions
-          );
+        if (store.user != null) {
+          try {
+            const requestID = await fetch(
+              process.env.BACKEND_URL + "/api/user-id",
+              requestOptions
+            );
 
-          if (requestID.status == 400 || requestID.status == 401) {
-            const responseJson = await requestID.json();
-            const resultJson = new Array(responseJson);
-            const resultError = resultJson[0].error;
+            if (requestID.status == 400 || requestID.status == 401) {
+              const responseJson = await requestID.json();
+              const resultJson = new Array(responseJson);
+              const resultError = resultJson[0].error;
 
-            console.log(resultError);
+              console.log("error, status 400 or 401", resultError);
+              return false;
+            }
+
+            const response = await requestID.json();
+            const temporal = new Array(response);
+            const temporalMsg = await temporal[0].message;
+            console.log("message", temporalMsg);
+
+            const resultID = await temporal[0].id;
+            console.log("id", resultID);
+            sessionStorage.setItem("id", resultID);
+            setStore({ id: resultID });
+            return true;
+          } catch (error) {
+            console.error(error);
             return false;
           }
-
-          const response = await requestID.json();
-          const temporal = new Array(response);
-          const temporalMsg = await temporal[0].message;
-          console.log("message", temporalMsg);
-
-          const resultID = await temporal[0].id;
-          console.log("id", resultID);
-          return true;
-        } catch (error) {
-          console.error(error);
-          return false;
         }
       },
     },
