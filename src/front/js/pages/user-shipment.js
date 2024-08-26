@@ -68,14 +68,65 @@ export const UserShipment = () => {
       };
 
       const request = await fetch(
-        process.env.BACKEND_URL + `/shipping/${"replace-with-id"}`,
+        process.env.BACKEND_URL + `/shipping/${store.id}`,
         shippingOptions
       );
-    } catch (error) {}
+
+      if (request.status == 400 || request.status == 404) {
+        const responseJson = await request.json();
+        const resultJson = new Array(responseJson);
+        const resultError = resultJson[0].error;
+
+        setIsResponse(resultError);
+        setIsAlert(true);
+        return false;
+      }
+
+      const response = await request.json();
+      const temporal = new Array(response);
+      const temporalMessage = await temporal[0].message;
+
+      setIsResponse(
+        `${temporalMessage}, you will be redirected in 5 seconds to the main page`
+      );
+      setIsAlert(false);
+      setIsSuccess(true);
+      return true;
+    } catch (error) {
+      setIsResponse(error);
+      setIsAlert(true);
+      return false;
+    }
   };
 
-  const returnMessage = () => {
+  const alertManager = () => {
     if (isAlert) {
+      return (
+        <div
+          className="alert alert-danger container-fluid text-center mt-1"
+          role="alert"
+        >
+          {isResponse}
+        </div>
+      );
+    } else if (isSuccess) {
+      return (
+        <div
+          className="alert alert-success container-fluid text-center mt-1"
+          role="alert"
+        >
+          {isResponse}
+        </div>
+      );
+    } else {
+      return (
+        <div
+          className="alert alert-secondary container-fluid text-center mt-3"
+          role="alert"
+        >
+          Type your info
+        </div>
+      );
     }
   };
 
@@ -98,6 +149,7 @@ export const UserShipment = () => {
         <div className="row">
           <div className="col-8 border border-dark rounded mx-auto">
             <div className="container-fluid">
+              {alertManager()}
               <form>
                 <div className="d-flex">
                   <div className="my-3 me-auto">

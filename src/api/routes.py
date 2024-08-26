@@ -111,7 +111,7 @@ def update_shipping(id):
 
     db.session.commit()
 
-    return jsonify(user.serialize()), 200
+    return jsonify({"message": "User shipping updated successfully"}), 200
 
 @api.route('/user/erase/<int:id>', methods=['DELETE'])
 def delete_user(id):
