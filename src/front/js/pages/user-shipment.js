@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const UserShipment = () => {
@@ -19,35 +19,12 @@ export const UserShipment = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isResponse, setIsResponse] = useState("");
 
-  const shippingAlertManager = () => {
-    if (isFirstName == "") {
-      setIsAlert(true);
-      setIsResponse("Please type your first name");
-      return false;
-    } else if (isLastName == "") {
-      setIsAlert(true);
-      setIsResponse("Please type your last name");
-      return false;
-    } else if (isAdress == "") {
-      setIsAlert(true);
-      setIsResponse("Please type tour adress");
-      return false;
-    } else if (isCountry == "") {
-      setIsAlert(true);
-      setIsResponse("Please type your country");
-      return false;
-    } else if (isState == "") {
-      setIsAlert(true);
-      setIsResponse("Please type your state");
-      return false;
-    } else if (isCity == "") {
-      setIsAlert(true);
-      setIsResponse("Please type your city");
-      return false;
-    } else {
-      console.log("All good");
-      return true;
-    }
+  const redirect = useNavigate();
+
+  const redirectManager = () => {
+    setTimeout(() => {
+      redirect("/");
+    }, "5000");
   };
 
   const updateShipping = async () => {
@@ -91,11 +68,43 @@ export const UserShipment = () => {
       );
       setIsAlert(false);
       setIsSuccess(true);
-      return true;
+
+      redirectManager();
     } catch (error) {
       setIsResponse(error);
       setIsAlert(true);
       return false;
+    }
+  };
+
+  const shippingAlertManager = () => {
+    if (isFirstName == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your first name");
+      return false;
+    } else if (isLastName == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your last name");
+      return false;
+    } else if (isAdress == "") {
+      setIsAlert(true);
+      setIsResponse("Please type tour adress");
+      return false;
+    } else if (isCountry == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your country");
+      return false;
+    } else if (isState == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your state");
+      return false;
+    } else if (isCity == "") {
+      setIsAlert(true);
+      setIsResponse("Please type your city");
+      return false;
+    } else {
+      console.log("All good"); // once its all good, call updateShippin here
+      return true;
     }
   };
 
@@ -267,7 +276,7 @@ export const UserShipment = () => {
                   <button
                     type="button"
                     className="btn btn-dark fauxColor"
-                    onClick={() => updateShipping()}
+                    onClick={() => shippingAlertManager()}
                   >
                     Save Shipping Info
                   </button>
