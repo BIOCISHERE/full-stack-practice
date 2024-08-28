@@ -103,8 +103,7 @@ export const UserShipment = () => {
       setIsResponse("Please type your city");
       return false;
     } else {
-      console.log("All good"); // once its all good, call updateShippin here
-      return true;
+      updateShipping();
     }
   };
 
