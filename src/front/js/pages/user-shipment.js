@@ -12,7 +12,7 @@ export const UserShipment = () => {
   const [isCountry, setIsCountry] = useState("");
   const [isState, setIsState] = useState("");
   const [isCity, setIsCity] = useState("");
-  const [isPostal, setIsPostal] = useState(""); //optional
+  const [isPostal, setIsPostal] = useState(0); //optional
   const [isMessage, setIsMessage] = useState(""); //optional
 
   const [isAlert, setIsAlert] = useState(false);
@@ -27,25 +27,74 @@ export const UserShipment = () => {
     }, "5000");
   };
 
+  const returnPayload = () => {
+    if (isApartment != "" && isPostal != 0) {
+      return {
+        first_name: isFirstName,
+        last_name: isLastName,
+        adress: isAdress,
+        apartment: isApartment,
+        country: isCountry,
+        state: isState,
+        city: isCity,
+        postal: isPostal,
+      };
+    } else if (isApartment != "") {
+      return {
+        first_name: isFirstName,
+        last_name: isLastName,
+        adress: isAdress,
+        apartment: isApartment,
+        country: isCountry,
+        state: isState,
+        city: isCity,
+      };
+    } else if (isPostal != 0) {
+      return {
+        first_name: isFirstName,
+        last_name: isLastName,
+        adress: isAdress,
+        country: isCountry,
+        state: isState,
+        city: isCity,
+        postal: isPostal,
+      };
+    } else {
+      return {
+        first_name: isFirstName,
+        last_name: isLastName,
+        adress: isAdress,
+        country: isCountry,
+        state: isState,
+        city: isCity,
+      };
+    }
+  };
+
   const updateShipping = async () => {
     try {
+      const payload = {
+        first_name: isFirstName,
+        last_name: isLastName,
+        adress: isAdress,
+        apartment: isApartment,
+        country: isCountry,
+        state: isState,
+        city: isCity,
+        postal: isPostal,
+      };
+
       const shippingOptions = {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          first_name: isFirstName,
-          last_name: isLastName,
-          adress: isAdress,
-          apartment: isApartment,
-          country: isCountry,
-          state: isState,
-          city: isCity,
-          postal: isPostal,
-        }),
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       };
 
       const request = await fetch(
-        process.env.BACKEND_URL + `/shipping/${store.id}`,
+        process.env.BACKEND_URL + `/api/shipping/${store.id}`,
         shippingOptions
       );
 
@@ -71,6 +120,7 @@ export const UserShipment = () => {
 
       redirectManager();
     } catch (error) {
+      console.log(error);
       setIsResponse(error);
       setIsAlert(true);
       return false;
