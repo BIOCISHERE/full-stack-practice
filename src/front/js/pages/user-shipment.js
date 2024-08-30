@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { number } from "prop-types";
 
 export const UserShipment = () => {
   const { store, actions } = useContext(Context);
@@ -73,24 +74,13 @@ export const UserShipment = () => {
 
   const updateShipping = async () => {
     try {
-      const payload = {
-        first_name: isFirstName,
-        last_name: isLastName,
-        adress: isAdress,
-        apartment: isApartment,
-        country: isCountry,
-        state: isState,
-        city: isCity,
-        postal: isPostal,
-      };
-
       const shippingOptions = {
         method: "PUT",
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(returnPayload()),
       };
 
       const request = await fetch(
@@ -151,6 +141,10 @@ export const UserShipment = () => {
     } else if (isCity == "") {
       setIsAlert(true);
       setIsResponse("Please type your city");
+      return false;
+    } else if (isNaN(isPostal)) {
+      setIsAlert(true);
+      setIsResponse("Please type a valid postal code");
       return false;
     } else {
       updateShipping();
