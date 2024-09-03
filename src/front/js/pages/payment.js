@@ -1,5 +1,13 @@
 import React from "react";
 
 export const Payment = () => {
-  return <h1>Payment</h1>;
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col">
+          <h1>payment</h1>
+        </div>
+      </div>
+    </div>
+  );
 };
