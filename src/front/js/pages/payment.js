@@ -1,6 +1,7 @@
 import React from "react";
 
 export const Payment = () => {
+  const test = "example@gmail.com";
   return (
     <div className="container-fluid">
       <div className="row">
@@ -15,6 +16,17 @@ export const Payment = () => {
               <span>Profile mail</span> <br />
               <span>Profile phone</span>
             </div>
+          </div>
+          <div className="container-fluid my-3">
+            <div className="border border-dark">
+              <span className="ms-3">Contact Info: {test}</span>
+            </div>
+            <div className="border border-dark">
+              <span className="ms-3">Send to: {test}</span>
+            </div>
+          </div>
+          <div className="container-fluid">
+            <h2>Payment</h2>
           </div>
         </div>
         <div className="col bg-body-secondary">
