@@ -18,11 +18,13 @@ export const Payment = () => {
             </div>
           </div>
           <div className="container-fluid my-3">
-            <div className="border border-dark">
-              <span className="ms-3">Contact Info: {test}</span>
+            <div className="d-flex border border-dark w-75">
+              <span className="ms-3">Contact Info: </span>
+              <span className="ms-3">{test}</span>
             </div>
-            <div className="border border-dark">
-              <span className="ms-3">Send to: {test}</span>
+            <div className="d-flex border border-dark w-75">
+              <span className="ms-3">Send to: </span>
+              <span className="ms-3">{test}</span>
             </div>
           </div>
           <div className="container-fluid">
