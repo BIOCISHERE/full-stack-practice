@@ -34,10 +34,18 @@ export const Payment = () => {
         <div className="col bg-body-secondary">
           <h1>Shopping cart</h1>
           <div className="row">
-            <div className="col-3 text-center">Product</div>
-            <div className="col-3 text-center">Price</div>
-            <div className="col-3 text-center">Amount</div>
-            <div className="col-3 text-center">Total</div>
+            <div className="col-3 text-center">
+              <h4>Product</h4>
+            </div>
+            <div className="col-3 text-center">
+              <h4>Price</h4>
+            </div>
+            <div className="col-3 text-center">
+              <h4>Amount</h4>
+            </div>
+            <div className="col-3 text-center">
+              <h4>Total</h4>
+            </div>
           </div>
           <div className="row border border-dark">
             <div className="col-3">
