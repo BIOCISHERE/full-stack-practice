@@ -19,6 +19,7 @@ import { ProductView } from "./pages/product-view";
 import { ShoppingCart } from "./pages/shopping-cart";
 import { Payment } from "./pages/payment";
 import { UserShipment } from "./pages/user-shipment";
+import ProductCard from "./component/productCard";
 
 //create your first component
 const Layout = () => {
@@ -48,6 +49,7 @@ const Layout = () => {
             <Route element={<UserShipment />} path="/shipment" />
             <Route element={<Payment />} path="/payment" />
             <Route element={<h1>Not found!</h1>} />
+            <Route element={<ProductCard />} path="/test" />
           </Routes>
           <Footer />
         </ScrollToTop>

@@ -88,6 +88,11 @@ export const Navbar = () => {
                         Sign-up
                       </Link>
                     </li>
+                    <li>
+                      <Link className="dropdown-item" to="/test">
+                        test
+                      </Link>
+                    </li>
                   </>
                 ) : (
                   <>
@@ -110,6 +115,11 @@ export const Navbar = () => {
                     <li>
                       <Link className="dropdown-item" to="/payment">
                         Payment
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/test">
+                        test
                       </Link>
                     </li>
                   </>
