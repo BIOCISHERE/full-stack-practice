@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import tShirtUrl from "../../img/t-shirt.png";
 
 class ProductCard extends Component {
+  static contextType = Context;
+
   constructor() {
     super();
     this.state = {
@@ -14,17 +19,23 @@ class ProductCard extends Component {
   };
 
   render() {
+    const { store, actions } = this.context;
+
     return (
-      <div className="container-fluid">
-        <h1>{this.state.card}</h1>
-        <h3>Count: {this.state.count}</h3>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={this.addToCount}
+      <div className={this.props.cardClass} key={this.props.cardIndex}>
+        <Link
+          to={actions.linkManager(this.props.cardId)}
+          className="text-decoration-none"
         >
-          +1 to count
-        </button>
+          <div className="card my-1">
+            <img
+              className="card-image-top img-fluid"
+              src={tShirtUrl}
+              alt="..."
+            />
+            <div className="card-body"></div>
+          </div>
+        </Link>
       </div>
     );
   }
