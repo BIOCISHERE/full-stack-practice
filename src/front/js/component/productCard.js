@@ -33,7 +33,19 @@ class ProductCard extends Component {
               src={tShirtUrl}
               alt="..."
             />
-            <div className="card-body"></div>
+            <div className="card-body">
+              <h5 className="card-title">{this.props.name}</h5>
+              <div className="d-flex">
+                <span className="card-text me-auto">
+                  ${actions.returnFormated(this.props.cost)}
+                </span>
+              </div>
+              <span className="card-text fauxLetters">
+                {actions.turnRating(this.props.rating)}
+              </span>
+              <span className="card-text ms-1">({this.props.ratingVotes})</span>
+              <br />
+            </div>
           </div>
         </Link>
       </div>
