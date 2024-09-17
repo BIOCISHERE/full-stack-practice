@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import tShirtUrl from "../../img/t-shirt.png";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import ProductCard from "../component/productCard";
 
 export const WomenProducts = () => {
   const { store, actions } = useContext(Context);
@@ -67,7 +68,16 @@ export const WomenProducts = () => {
       !isSocks
     ) {
       return store.womenProducts.map((item, index) => (
-        <div className="col" key={index}>
+        <ProductCard
+          key={index}
+          cardClass="col"
+          cardId={item.id}
+          name={item.name}
+          cost={item.cost}
+          rating={item.rating}
+          ratingVotes={item.ratingVotes}
+        />
+        /*<div className="col" key={index}>
           <Link
             to={actions.linkManager(item.id)}
             className="text-decoration-none"
@@ -93,7 +103,7 @@ export const WomenProducts = () => {
               </div>
             </div>
           </Link>
-        </div>
+        </div>*/
       ));
     } else {
       return store.womenProducts.map((item, index) => (

@@ -22,7 +22,7 @@ class ProductCard extends Component {
     const { store, actions } = this.context;
 
     return (
-      <div className={this.props.cardClass} key={this.props.cardIndex}>
+      <div className={this.props.cardClass}>
         <Link
           to={actions.linkManager(this.props.cardId)}
           className="text-decoration-none"
