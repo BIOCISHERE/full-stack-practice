@@ -107,7 +107,16 @@ export const WomenProducts = () => {
       ));
     } else {
       return store.womenProducts.map((item, index) => (
-        <div className={turnClass(item)} key={index}>
+        <ProductCard
+          key={index}
+          cardClass={turnClass(item)}
+          cardId={item.id}
+          name={item.name}
+          cost={item.cost}
+          rating={item.rating}
+          ratingVotes={item.ratingVotes}
+        />
+        /*<div className={turnClass(item)} key={index}>
           <Link
             to={actions.linkManager(item.id)}
             className="text-decoration-none"
@@ -133,7 +142,7 @@ export const WomenProducts = () => {
               </div>
             </div>
           </Link>
-        </div>
+        </div>*/
       ));
     }
   };
