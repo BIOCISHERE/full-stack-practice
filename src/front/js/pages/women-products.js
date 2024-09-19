@@ -77,33 +77,6 @@ export const WomenProducts = () => {
           rating={item.rating}
           ratingVotes={item.ratingVotes}
         />
-        /*<div className="col" key={index}>
-          <Link
-            to={actions.linkManager(item.id)}
-            className="text-decoration-none"
-          >
-            <div className="card my-1">
-              <img
-                className="card-image-top img-fluid"
-                src={tShirtUrl}
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
-                <div className="d-flex">
-                  <span className="card-text me-auto">
-                    ${actions.returnFormated(item.cost)}
-                  </span>
-                </div>
-                <span className="card-text fauxLetters">
-                  {actions.turnRating(item.rating)}
-                </span>
-                <span className="card-text ms-1">({item.ratingVotes})</span>
-                <br />
-              </div>
-            </div>
-          </Link>
-        </div>*/
       ));
     } else {
       return store.womenProducts.map((item, index) => (
@@ -116,33 +89,6 @@ export const WomenProducts = () => {
           rating={item.rating}
           ratingVotes={item.ratingVotes}
         />
-        /*<div className={turnClass(item)} key={index}>
-          <Link
-            to={actions.linkManager(item.id)}
-            className="text-decoration-none"
-          >
-            <div className="card my-1">
-              <img
-                className="card-image-top img-fluid"
-                src={tShirtUrl}
-                alt="..."
-              />
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
-                <div className="d-flex">
-                  <span className="card-text me-auto">
-                    ${actions.returnFormated(item.cost)}
-                  </span>
-                </div>
-                <span className="card-text fauxLetters">
-                  {actions.turnRating(item.rating)}
-                </span>
-                <span className="card-text ms-1">({item.ratingVotes})</span>
-                <br />
-              </div>
-            </div>
-          </Link>
-        </div>*/
       ));
     }
   };
