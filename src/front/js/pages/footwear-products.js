@@ -3,6 +3,7 @@ import tShirtUrl from "../../img/t-shirt.png";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { FaRegStar, FaStar, FaRegHeart } from "react-icons/fa6";
+import ProductCard from "../component/productCard";
 
 export const FootwearProducts = () => {
   const { store, actions } = useContext(Context);
@@ -27,7 +28,16 @@ export const FootwearProducts = () => {
   const returnProducts = () => {
     if (!isUrban && !isSport && !isShoe && !isSandals) {
       return store.footwearProducts.map((item, index) => (
-        <div className="col" key={index}>
+        <ProductCard
+          key={index}
+          cardClass="col"
+          cardId={item.id}
+          name={item.name}
+          cost={item.cost}
+          rating={item.rating}
+          ratingVotes={item.ratingVotes}
+        />
+        /*<div className="col" key={index}>
           <Link
             to={actions.linkManager(item.id)}
             className="text-decoration-none"
@@ -52,7 +62,7 @@ export const FootwearProducts = () => {
               </div>
             </div>
           </Link>
-        </div>
+        </div>*/
       ));
     } else {
       return store.footwearProducts.map((item, index) => (
