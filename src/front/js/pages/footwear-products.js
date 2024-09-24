@@ -66,7 +66,16 @@ export const FootwearProducts = () => {
       ));
     } else {
       return store.footwearProducts.map((item, index) => (
-        <div className={turnClass(item)} key={index}>
+        <ProductCard
+          key={index}
+          cardClass={turnClass(item)}
+          cardId={item.id}
+          name={item.name}
+          cost={item.cost}
+          rating={item.rating}
+          ratingVotes={item.ratingVotes}
+        />
+        /*<div className={turnClass(item)} key={index}>
           <Link
             to={actions.linkManager(item.id)}
             className="text-decoration-none"
@@ -91,7 +100,7 @@ export const FootwearProducts = () => {
               </div>
             </div>
           </Link>
-        </div>
+        </div>*/
       ));
     }
   };
