@@ -14,7 +14,42 @@ class Cart extends Component {
   }
 
   render() {
-    return <h1>Cart class component</h1>;
+    const { store, actions } = this.context;
+
+    return (
+      <>
+        {actions.getTotalCartCost() > 0 ? (
+          //This will display when the shopping cart is not empty
+          <div
+            className="container-fluid border border-dark-subtle rounded"
+            style={{ marginTop: "1rem", marginBottom: "1rem" }}
+          >
+            <div className="container-fluid mt-3">
+              <div className="row">
+                <div className="col-6 text-center">
+                  <h4>Product</h4>
+                </div>
+                <div className="col-2 text-center">
+                  <h4>Price</h4>
+                </div>
+                <div className="col-2 text-center">
+                  <h4>Amount</h4>
+                </div>
+                <div className="col-2 text-center">
+                  <h4>Total</h4>
+                </div>
+              </div>
+            </div>
+            <div className="container-fluid mb-3">
+              {/* Each product in the shopping cart will map a row in wich all the info will be displayed horizontally */}
+            </div>
+          </div>
+        ) : (
+          //This will display when the shopping cart is not empty
+          <div></div>
+        )}
+      </>
+    );
   }
 }
 
