@@ -146,6 +146,41 @@ class Cart extends Component {
                       </div>
                       <div className="col-2 border border-dark-subtle">
                         {/* This is the amount div */}
+                        <div className="container-fluid cartCenterVertically">
+                          <div className="d-flex mx-auto">
+                            <button
+                              type="button"
+                              className="btn btn-dark fauxColor btn-sm me-1"
+                              onClick={() => actions.minus1ToCart(product.id)}
+                            >
+                              -
+                            </button>
+                            <input
+                              value={store.cart[product.id]}
+                              className="text-center"
+                              style={{ width: "2rem" }}
+                              onChange={(e) =>
+                                actions.setCustomToCart(
+                                  product.id,
+                                  e.target.value
+                                )
+                              }
+                            />
+                            <button
+                              type="button"
+                              className="btn btn-dark fauxColor btn-sm ms-1"
+                              onClick={() => actions.plus1ToCart(product.id)}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-2 border border-dark-subtle text-center">
+                        {/* This is the total div */}
+                        <h4 className="cartCenterVertically">
+                          ${actions.returnTotal(product.cost, product.id)}
+                        </h4>
                       </div>
                     </div>
                   );
@@ -154,8 +189,17 @@ class Cart extends Component {
             </div>
           </div>
         ) : (
-          //This will display when the shopping cart is not empty
-          <div></div>
+          //This will display when the shopping cart is empty
+          <div className="container-fluid">
+            <div
+              className="row border border-dark-subtle rounded text-center"
+              style={{ marginTop: "1rem", marginBottom: "1rem" }}
+            >
+              <h2 style={{ marginTop: "8rem", marginBottom: "8rem" }}>
+                Your shopping cart is empty
+              </h2>
+            </div>
+          </div>
         )}
       </>
     );
