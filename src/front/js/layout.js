@@ -21,6 +21,7 @@ import { Payment } from "./pages/payment";
 import { UserShipment } from "./pages/user-shipment";
 import ProductCard from "./component/productCard";
 import Cart from "./component/cart";
+import CartTotal from "./component/cartTotal";
 
 //create your first component
 const Layout = () => {
@@ -50,7 +51,7 @@ const Layout = () => {
             <Route element={<UserShipment />} path="/shipment" />
             <Route element={<Payment />} path="/payment" />
             <Route element={<h1>Not found!</h1>} />
-            <Route element={<Cart />} path="/test" />
+            <Route element={<CartTotal />} path="/test" />
           </Routes>
           <Footer />
         </ScrollToTop>
