@@ -14,7 +14,34 @@ class CartTotal extends Component {
 
   render() {
     const { store, actions } = this.context;
-    return <h1>Cart Total</h1>;
+    return (
+      <>
+        <div className="container-fluid border border-dark-subtle rounded">
+          <h3 className="mb-3">Purchase summary</h3>
+          <div className="d-flex mb-1">
+            <span className="me-auto fs-5">
+              Product
+              {actions.getTotalProductInCart() > 0 ? (
+                <span>({actions.getTotalProductInCart()})</span>
+              ) : (
+                ""
+              )}
+            </span>
+            <span className="fs-5 fw-bold">
+              ${actions.returnFormated(actions.getTotalCartCost())}
+            </span>
+          </div>
+          <div className="d-flex my-1">
+            <span className="me-auto fs-5">
+              Shipping
+              <span className="fs-6">({returnShippingRegion()})</span>
+            </span>
+            <span className="fs-5 fw-bold">${returnShipping()}</span>
+          </div>
+          <div>{/* Continue here */}</div>
+        </div>
+      </>
+    );
   }
 }
 
